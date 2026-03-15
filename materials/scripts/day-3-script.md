@@ -23,6 +23,7 @@ Po Day 3 uczestnicy mają:
 - Referencja modułu terminalowego: `materials/references/wezterm-mini-module.md`
 - Referencja modułu bezpieczeństwa: `materials/references/sandbox-safety-module.md`
 - Referencja modułu głosowego (opcjonalnie): `materials/references/handy-computer-mini-module.md`
+- Notatka transferowa React→Angular + AI UI options: `materials/research/angular-ai-ui-options-and-react-class-rationale.md`
 
 ## Agenda dnia
 - 09:00–09:20 — Handoff z Day 2 i plan budowy na dziś
@@ -186,7 +187,7 @@ W praktyce najwięcej bólu pojawia się później tam, gdzie dane były potrakt
 ### Co mówię
 "Teraz robimy coś bardzo ważnego psychologicznie: domykamy pierwszy przepływ end-to-end. Nawet prosty ekran i podstawowe połączenie z backendem zmieniają odbiór projektu. Nagle przestajemy mówić o potencjale, a zaczynamy pokazywać działanie."
 
-"To jest też moment, żeby podkreślić: na kursie pokazujemy React jako szybki nośnik demonstracyjny, ale logika podejścia jest przenaszalna. Jeśli ktoś pracuje w Angularze albo w środowisku low-code, to nadal korzysta z tych samych zasad: jasny kontrakt, mały slice, walidacja, test i kontrolowany diff."
+"To jest też moment, żeby podkreślić: na kursie pokazujemy React jako szybki nośnik demonstracyjny, ale logika podejścia jest przenaszalna. Jeśli ktoś pracuje w Angularze albo w środowisku low-code, to nadal korzysta z tych samych zasad: jasny kontrakt, mały slice, walidacja, test i kontrolowany diff. Nie robimy tu pełnego warsztatu Angular, tylko budujemy nawyki, które mapują się 1:1 na Wasze projekty."
 
 ### Co pokazuję
 - Prosty widok lub formularz, który korzysta z wcześniej zbudowanego slice’a backendowego.

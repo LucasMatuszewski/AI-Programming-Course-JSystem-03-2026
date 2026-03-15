@@ -20,6 +20,7 @@ Po Day 2 uczestnicy mają:
 - Scenariusze demo na dziś: `materials/04-demo-scenarios.md#scenariusz-a--junior-dev-który-boi-się-zepsuć-produkcję` i `materials/04-demo-scenarios.md#scenariusz-b--ekspert-sqldb-który-chce-konkretu-i-bezpieczeństwa`
 - Failure scenario na dziś: `materials/04-demo-scenarios.md#f2--zbyt-szeroki-zakres-zmian`
 - Quiz otwarcia z Day 1: `materials/quizzes/day-1-anonymous-ai-basics-quiz.md`
+- Notatka: React w klasie vs Angular w projektach + opcje AI UI: `materials/research/angular-ai-ui-options-and-react-class-rationale.md`
 - Dzień następny: `materials/scripts/day-3-script.md`
 
 ## Agenda dnia
@@ -87,6 +88,8 @@ W codziennej pracy najdroższy błąd to nie zły prompt, tylko zły problem do 
 
 ### Co mówię
 "Jeżeli damy agentowi ogólne: ‘zrób aplikację dla banku’, to dostaniemy bardzo kreatywną fantazję. Jeżeli damy mu: użytkownika, cel, 3 kluczowe scenariusze i miarę sukcesu, zaczyna się prawdziwa współpraca. Dzisiaj uczymy się pisać kontekst tak, żeby AI pomagało, a nie zgadywało."
+
+"Dlatego wcześnie pytam, czy narzędzia i modele mają działać cloud czy on-prem. To pytanie nie jest o modę technologiczną, tylko o bezpieczeństwo danych, audyt, approvals i realny pipeline zespołu. To ono decyduje, jak projektować workflow od pierwszego promptu."
 
 "To jest też moment ważny dla osób nietypowo technicznych: analityk, DBA, low-code, Java developer — wszyscy tu mają wkład. Bo problem framing nie jest tylko techniczny. To jest wspólny język projektu."
 
@@ -285,7 +288,8 @@ W praktyce dużo błędów AI nie wynika z „głupiego modelu”, tylko z nieja
 ### Co pokazuję
 - Prosty wireframe lub lista ekranów / stanów.
 - Jak z jednego ekranu wyciągnąć: komponenty, akcje, walidacje, stany pusty/błąd/sukces.
-- Powiązanie z `materials/04-demo-scenarios.md` i `exercises/03-exercises.md`.
+- Mini-bridge „React na kursie → Angular w pracy”: co mapuje się 1:1 (kontrakty, kryteria, testy, pętla diff/test/commit), a co zmienia się składniowo (komponenty, state management, warstwa UI).
+- Powiązanie z `materials/04-demo-scenarios.md`, `exercises/03-exercises.md` oraz `materials/research/angular-ai-ui-options-and-react-class-rationale.md`.
 
 ### Co wklejam na chat
 ```text
@@ -295,6 +299,10 @@ Dla każdego ekranu odpowiedz:
 - Jakie są stany: success / empty / loading / error?
 - Jakie dane są potrzebne?
 - Który element najlepiej nadaje się na pierwszy mały slice do Day 3?
+
+Bridge React -> Angular:
+- Co zostaje identyczne (kontrakt API, walidacje, testy, DoD)?
+- Co mapujemy technicznie (komponenty, stan, usługi HTTP)?
 ```
 
 ### Ćwiczenie
