@@ -9,10 +9,16 @@ Po Day 4 uczestnicy mają:
 - materiał wejściowy do Day 5: demo końcowe, wdrożeniowe nawyki i plan „co dalej po szkoleniu”.
 
 ## Linki dnia / mapa zależności
-- Prompty modułowe (planowane uzupełnienie): `prompts/02-module-prompts.md`
-- Ćwiczenia kursowe (planowane uzupełnienie): `exercises/03-exercises.md`
-- Scenariusze demo (planowane uzupełnienie): `materials/04-demo-scenarios.md`
-- Quiz i kalibracja z Day 1: `materials/quizzes/day-1-anonymous-ai-basics-quiz.md`
+- Prompty dla Day 4: `prompts/02-module-prompts.md#day-4--jakość-testy-security-cicd`
+  - D4-M1 Testy: `prompts/02-module-prompts.md#d4-m1-generowanie-testów-do-konkretnego-zachowania`
+  - D4-M2 Security audit: `prompts/02-module-prompts.md#d4-m2-audit-security-legacyjftp`
+  - D4-M3 CI/CD cloud vs on-prem: `prompts/02-module-prompts.md#d4-m3-cicd-cloud-vs-on-prem`
+- Ćwiczenia Day 4: `exercises/03-exercises.md#day-4--jakość-bezpieczeństwo-legacy-cicd`
+  - D4-E1 Testy i review: `exercises/03-exercises.md#d4-e1--testy-i-review-pętli-ai`
+  - D4-E2 Legacy JFTP audit: `exercises/03-exercises.md#d4-e2--security-audit-legacy-jftp`
+  - D4-E3 CI/CD: `exercises/03-exercises.md#d4-e3--cicd-cloud-vs-on-prem`
+- Scenariusz demo na dziś: `materials/04-demo-scenarios.md#scenariusz-c--architekttech-lead-governance-cicd-i-ryzyko`
+- Failure scenario na dziś: `materials/04-demo-scenarios.md#f5--ryzyko-danych-wrażliwych`
 - Dzień poprzedni: `materials/scripts/day-3-script.md`
 - Dzień następny: `materials/scripts/day-5-script.md`
 

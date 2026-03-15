@@ -9,9 +9,16 @@ Po Day 2 uczestnicy mają:
 - rozpisany backlog małych, testowalnych slice’ów gotowych do wejścia w Day 3.
 
 ## Linki dnia / mapa zależności
-- Prompty modułowe (planowane uzupełnienie): `prompts/02-module-prompts.md`
-- Ćwiczenia kursowe (planowane uzupełnienie): `exercises/03-exercises.md`
-- Scenariusze demo (planowane uzupełnienie): `materials/04-demo-scenarios.md`
+- Prompty dla Day 2: `prompts/02-module-prompts.md#day-2--architektura-dane-adr-zasady-dla-agentów`
+  - D2-M1 ADR: `prompts/02-module-prompts.md#d2-m1-adr-decyzja-architektoniczna`
+  - D2-M2 Model danych: `prompts/02-module-prompts.md#d2-m2-model-danych-i-reguły-domenowe`
+  - D2-M3 System prompt: `prompts/02-module-prompts.md#d2-m3-system-prompt--zasady-pracy-agenta`
+- Ćwiczenia Day 2: `exercises/03-exercises.md#day-2--od-problemu-do-architektury`
+  - D2-E1 Problem framing: `exercises/03-exercises.md#d2-e1--problem-framing--acceptance-criteria`
+  - D2-E2 Architektura + ADR: `exercises/03-exercises.md#d2-e2--architektura--model-danych--adr`
+  - D2-E3 Task slicing: `exercises/03-exercises.md#d2-e3--task-slicing-pod-agenta`
+- Scenariusze demo na dziś: `materials/04-demo-scenarios.md#scenariusz-a--junior-dev-który-boi-się-zepsuć-produkcję` i `materials/04-demo-scenarios.md#scenariusz-b--ekspert-sqldb-który-chce-konkretu-i-bezpieczeństwa`
+- Failure scenario na dziś: `materials/04-demo-scenarios.md#f2--zbyt-szeroki-zakres-zmian`
 - Quiz otwarcia z Day 1: `materials/quizzes/day-1-anonymous-ai-basics-quiz.md`
 - Dzień następny: `materials/scripts/day-3-script.md`
 

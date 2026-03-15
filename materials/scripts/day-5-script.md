@@ -9,12 +9,18 @@ Po Day 5 uczestnicy mają:
 - motywujące zakończenie kursu bez efektu „fajnie było, ale co teraz?”.
 
 ## Linki dnia / mapa zależności
-- Prompty modułowe (planowane uzupełnienie): `prompts/02-module-prompts.md`
-- Ćwiczenia kursowe (planowane uzupełnienie): `exercises/03-exercises.md`
-- Scenariusze demo (planowane uzupełnienie): `materials/04-demo-scenarios.md`
-- Quiz i kalibracja z Day 1: `materials/quizzes/day-1-anonymous-ai-basics-quiz.md`
+- Prompty dla Day 5: `prompts/02-module-prompts.md#day-5--utrwalenie-on-prem-adaptacja-plan-30-dni`
+  - D5-M1 Finalny audit: `prompts/02-module-prompts.md#d5-m1-finalny-audit-rozwiązania-końcowego`
+  - D5-M2 Adaptacja cloud→on-prem: `prompts/02-module-prompts.md#d5-m2-adaptacja-cloud--on-prem`
+  - D5-M3 Plan 30 dni: `prompts/02-module-prompts.md#d5-m3-plan-30-dni-po-szkoleniu`
+- Ćwiczenia Day 5: `exercises/03-exercises.md#day-5--demo-audyt-końcowy-plan-wdrożenia`
+  - D5-E1 Final demo: `exercises/03-exercises.md#d5-e1--final-demo--decyzje-techniczne`
+  - D5-E2 Security audit końcowy: `exercises/03-exercises.md#d5-e2--security-audit-końcowego-rozwiązania`
+  - D5-E3 Plan 30 dni: `exercises/03-exercises.md#d5-e3--plan-wdrożenia-po-kursie-30-dni`
+- Scenariusz demo na dziś: `materials/04-demo-scenarios.md#scenariusz-c--architekttech-lead-governance-cicd-i-ryzyko`
+- Failure scenario na dziś: `materials/04-demo-scenarios.md#f3--testy-przechodzą-ale-wymaganie-biznesowe-niespełnione`
 - Dzień poprzedni: `materials/scripts/day-4-script.md`
-- Materiał indeksujący (planowane uzupełnienie): `materials/12-materials-index.md`
+- Indeks materiałów (do dodania w późniejszym TODO): `materials/12-materials-index.md`
 
 ## Agenda dnia
 - 09:00–09:20 — Wejście w Day 5: z „działa” do „umiem to obronić i wdrożyć”

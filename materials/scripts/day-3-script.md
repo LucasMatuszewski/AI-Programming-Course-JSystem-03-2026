@@ -9,9 +9,15 @@ Po Day 3 uczestnicy mają:
 - przygotowany materiał wejściowy do Day 4: testy, review, bezpieczeństwo i refaktoryzacja.
 
 ## Linki dnia / mapa zależności
-- Prompty modułowe (planowane uzupełnienie): `prompts/02-module-prompts.md`
-- Ćwiczenia kursowe (planowane uzupełnienie): `exercises/03-exercises.md`
-- Scenariusze demo (planowane uzupełnienie): `materials/04-demo-scenarios.md`
+- Prompty dla Day 3: `prompts/02-module-prompts.md#day-3--implementacja-rdzenia-codex-first`
+  - D3-M1 Mały slice: `prompts/02-module-prompts.md#d3-m1-prompt-implementacyjny-mały-slice`
+  - D3-M2 Debugging: `prompts/02-module-prompts.md#d3-m2-prompt-debugowy`
+  - D3-M3 Refaktor: `prompts/02-module-prompts.md#d3-m3-prompt-refaktoryzacyjny-bez-zmiany-zachowania`
+- Ćwiczenia Day 3: `exercises/03-exercises.md#day-3--implementacja-rdzenia`
+  - D3-E1 Backend/API: `exercises/03-exercises.md#d3-e1--backendapi--podstawowe-guardrails`
+  - D3-E2 Integracja UI/CLI: `exercises/03-exercises.md#d3-e2--integracja-uicli-z-backendem`
+- Scenariusz demo na dziś: `materials/04-demo-scenarios.md#scenariusz-b--ekspert-sqldb-który-chce-konkretu-i-bezpieczeństwa`
+- Failure scenario na dziś: `materials/04-demo-scenarios.md#f1--halucynacja-apifeature`
 - Dzień poprzedni: `materials/scripts/day-2-script.md`
 - Dzień następny: `materials/scripts/day-4-script.md`
 

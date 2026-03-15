@@ -10,9 +10,16 @@ Po Day 1 uczestnicy mają:
 
 ## Linki dnia / mapa zależności
 - Quiz otwarcia: `materials/quizzes/day-1-anonymous-ai-basics-quiz.md`
-- Prompty modułowe (planowane uzupełnienie): `prompts/02-module-prompts.md`
-- Ćwiczenia kursowe (planowane uzupełnienie): `exercises/03-exercises.md`
-- Scenariusze demo (planowane uzupełnienie): `materials/04-demo-scenarios.md`
+- Prompty dla Day 1: `prompts/02-module-prompts.md#day-1--fundamenty-onboarding-pierwszy-workflow`
+  - D1-M1 Start i kontrakt: `prompts/02-module-prompts.md#d1-m1-start-kursu-i-kontrakt-pracy-ai--bezpieczeństwo`
+  - D1-M2 Quiz diagnostyczny: `prompts/02-module-prompts.md#d1-m2-quiz-diagnostyczny-anonimowy`
+  - D1-M3 Z pomysłu do planu: `prompts/02-module-prompts.md#d1-m3-pierwszy-prompt-z-pomysłu-do-planu`
+- Ćwiczenia Day 1: `exercises/03-exercises.md#day-1--start-bez-chaosu`
+  - D1-E1 Safe setup: `exercises/03-exercises.md#d1-e1--safe-setup--workflow-start`
+  - D1-E2 Quiz + adaptacja: `exercises/03-exercises.md#d1-e2--quiz-kalibracyjny--plan-adaptacji`
+- Scenariusz demo na dziś: `materials/04-demo-scenarios.md#scenariusz-a--junior-dev-który-boi-się-zepsuć-produkcję`
+- Failure scenario na dziś: `materials/04-demo-scenarios.md#f4--prompt-zbyt-ogólny-chaotyczna-odpowiedź`
+- Materiał zbiorczy do wrzutek na czat: `prompts/02-module-prompts.md`
 
 ## Agenda dnia
 - 09:00–09:20 — Zoom onboarding + zasady pracy
@@ -53,8 +60,7 @@ Po Day 1 uczestnicy mają:
 - `Zasady pracy: 1) 👍 = jasne / działa, 2) pytania wrzucamy od razu na czat, 3) kamerki mile widziane, 4) po każdym większym bloku robimy mini-ćwiczenie, 5) AI traktujemy jako draft + przyspieszenie, nie wyrocznię.`
 
 ### Ćwiczenie
-- Core: każdy daje reakcję 👍 i wpisuje na czacie „gotowy/a”.
-- Stretch: kto chce, dopisuje w 1 zdaniu, czego najbardziej chce uniknąć przy pracy z AI.
+- Core: każdy daje reakcję 👍 lub mówi/pisze swoje uwagi
 
 ### Feedback loop (Kolb)
 - Doświadczenie: wszyscy używają jednego prostego kanału synchronizacji.
@@ -71,20 +77,19 @@ Po Day 1 uczestnicy mają:
 - Dzięki temu łatwiej dobrać przykłady, tempo i poziom szczegółu.
 
 ### Co mówię
-- „Max 20–30 sekund na osobę: rola, stack, jak dziś używacie AI i co Was najbardziej frustruje.”
+- „Max 2-3 minuty na osobę: rola, stack, jak dziś używacie AI i co Was najbardziej frustruje w pracy z AI (pain points).”
 - „To nie jest autoprezentacja na LinkedIn, tylko szybki radar dla mnie.”
-- „Szukamy wspólnych bóli, bo to one dadzą nam najlepsze przykłady na resztę tygodnia.”
+- „Szukamy wspólnych problemów / celów, bo to one dadzą nam najlepsze przykłady na resztę tygodnia.”
 
 ### Co pokazuję
 - 4 pytania na slajdzie lub w prostym ekranie współdzielonym.
 - Miejsca wspólne między uczestnikami: np. SQL, dokumentacja, review, legacy, onboarding.
 
 ### Co wklejam na chat
-- `Runda intro (max 30s/os): 1) rola, 2) stack, 3) jak dziś używasz AI, 4) największy pain point.`
+- `Runda intro (max 2-3 min/os): 1) rola, 2) stack, 3) jak dziś używasz AI, 4) największy pain point.`
 
 ### Ćwiczenie
 - Core: szybka runda ustna.
-- Stretch: uczestnicy wpisują na czacie 1 obszar, w którym AI już pomaga albo najbardziej zawodzi.
 
 ### Feedback loop (Kolb)
 - Doświadczenie: zbieramy realny kontekst z grupy.
