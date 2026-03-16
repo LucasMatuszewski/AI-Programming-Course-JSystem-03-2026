@@ -8,6 +8,16 @@ Po Day 1 uczestnicy mają:
 - pierwszy sensowny artefakt PRD/AGENTS lub mały wynik repo,
 - większy spokój: „wiem, jak zacząć i nie narobić szkód”.
 
+## Czego się nauczymy (perspektywa całego dnia)
+- Jak uruchomić i utrzymać Codex-first workflow w bezpiecznych granicach.
+- Jak zamieniać ogólny pomysł na konkret: zakres MVP, PRD/AGENTS i pierwszy mały artefakt.
+- Jak prowadzić review wygenerowanych wyników tak, by zachować kontrolę jakości.
+
+## Dlaczego warto (perspektywa całego dnia)
+- Bo zespołowi szybciej rośnie zaufanie do AI, gdy pierwszy dzień daje realne, namacalne efekty.
+- Bo bez bezpiecznych nawyków i jasnych reguł nawet dobry agent workflow szybko zamienia się w chaos.
+- Bo ten fundament skraca pracę już od Day 2: mniej zgadywania, więcej powtarzalnego tempa.
+
 ## Linki dnia / mapa zależności
 - Quiz otwarcia: `materials/quizzes/day-1-anonymous-ai-basics-quiz.md`
 - Prompty dla Day 1: `prompts/02-module-prompts.md#day-1--fundamenty-onboarding-pierwszy-workflow`
