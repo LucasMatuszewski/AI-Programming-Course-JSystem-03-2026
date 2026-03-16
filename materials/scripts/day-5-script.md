@@ -8,6 +8,13 @@ Po Day 5 uczestnicy mają:
 - praktyczny plan pierwszych 30 dni po szkoleniu: narzędzia, zasady, małe pilotaże, metryki i guardraile,
 - motywujące zakończenie kursu bez efektu „fajnie było, ale co teraz?”.
 
+## Zgodność z programem JSystems (Day 5)
+- **Moduł 5.1 — Demo i komunikacja rozwiązania:** bloki `09:20–10:05` oraz `10:05–11:00`.
+- **Moduł 5.2 — Wdrożenie w realiach organizacji (cloud/on-prem):** blok `11:15–12:05`.
+- **Moduł 5.3 — Agent workflows, governance i granice automatyzacji:** blok `12:05–13:00`.
+- **Moduł 5.4 — Plan adopcji po szkoleniu:** bloki `13:30–14:20`, `14:40–15:25`, `15:25–16:00`.
+- **Adnotacja metodyczna:** krótkie porównanie Claude/IntelliJ (`14:20–14:30`) pozostaje dodatkiem orientacyjnym i nie rozbija toru Codex-first.
+
 ## Linki dnia / mapa zależności
 - Prompty dla Day 5: `prompts/02-module-prompts.md#day-5--utrwalenie-on-prem-adaptacja-plan-30-dni`
 - Prompt pack Day 5 (quick copy): `prompts/day-5/day-5-prompt-pack.md`
@@ -586,6 +593,169 @@ Dobre zakończenie zwiększa szansę, że uczestnicy naprawdę wrócą do materi
 - S2: świadome zapisanie pierwszego kroku i ryzyka do monitorowania.
 
 ---
+
+## Prompty trenerskie Day 5 (inline, gotowe do wklejenia)
+
+### P1 — Final demo narrative (09:20)
+```text
+Przygotuj 5-zdaniową narrację demo końcowego dla rozwiązania [NAZWA].
+Kontekst: odbiorca mieszany (tech lead + manager + security).
+Struktura:
+1) problem i użytkownik,
+2) co działa end-to-end,
+3) gdzie AI przyspieszyło,
+4) gdzie człowiek musiał przejąć kontrolę,
+5) ryzyka + następny krok.
+Ton: konkretny, bez marketingu i bez slangu.
+```
+
+### P2 — Decyzje techniczne i kompromisy (10:05)
+```text
+Na podstawie opisu rozwiązania wypisz 3 decyzje techniczne w formacie:
+- Wybraliśmy [X], bo [Y].
+- Świadomie nie robimy jeszcze [Z], bo [ryzyko/koszt].
+- Następny krok po pilocie: [A].
+Dla każdej decyzji dopisz koszt uboczny i warunek rewizji decyzji.
+```
+
+### P3 — Cloud → on-prem adaptation (11:15)
+```text
+Przepisz ten workflow cloud na wariant on-prem/enterprise.
+Workflow wejściowy: [WKLEJ FLOW].
+Wymagania:
+- zachowaj logikę: małe slice’y, diff/test/review, approvale,
+- wskaż zmiany w modelach, integracjach, bezpieczeństwie i kosztach,
+- podaj wersję minimum (MVP wdrożenia) na 2 tygodnie.
+```
+
+### P4 — Agentic workflow scope control (12:05)
+```text
+Pomóż wybrać 1 integrację agentową na start.
+Dane wejściowe:
+- największy ból zespołu: [BÓL],
+- środowisko: [JAVA/SQL/JENKINS/GHE/...],
+- ograniczenia bezpieczeństwa: [OGRANICZENIA].
+Zwróć:
+1) jedną rekomendowaną integrację,
+2) 3 guardraile,
+3) kryterium STOP (kiedy nie wdrażać dalej),
+4) metrykę wartości po 14 dniach.
+```
+
+### P5 — Plan 30 dni (13:30)
+```text
+Zbuduj plan wdrożenia AI na 30 dni dla zespołu [ZESPÓŁ].
+Format:
+- 1 proces do poprawy,
+- właściciel,
+- metryka sukcesu,
+- guardrail,
+- termin przeglądu (dzień 14 i 30),
+- ryzyko główne i plan mitigacji.
+Warunek: plan ma być mały, mierzalny i realistyczny.
+```
+
+### P6 — Tool choice message for leadership (14:20)
+```text
+Napisz krótką notkę (max 8 zdań) do lidera technicznego:
+- dlaczego tor główny to Codex,
+- gdzie sensownie mieści się Claude Code,
+- gdzie sensownie mieści się IntelliJ AI Assistant/Junie,
+- dlaczego nie wdrażamy 3 narzędzi naraz.
+Ton: pragmatyczny, zero wojny narzędziowej.
+```
+
+### P7 — Mini-playbook draft (14:40)
+```text
+Stwórz 1-stronicowy mini-playbook zespołu do pracy z AI.
+Sekcje obowiązkowe:
+- use case startowy,
+- dozwolone narzędzia,
+- niedozwolone praktyki,
+- approval/review,
+- metryka,
+- checkpoint za 2 tygodnie.
+Dodaj checklistę "GO / GO WITH CONDITIONS / NO-GO" dla bezpieczeństwa.
+```
+
+### P8 — First step after course (15:25)
+```text
+Pomóż mi sformułować pierwszy krok po kursie w jednym zdaniu.
+Warunki:
+- ma być wykonalny w tym tygodniu,
+- ma mieć właściciela,
+- ma mieć widoczny efekt,
+- ma zawierać jedno ryzyko do monitorowania.
+Podaj też krótką wersję do wysłania zespołowi na Teams.
+```
+
+## Szybkie copy-paste dla trenera (Day 5)
+
+### CP1 — Otwarcie Day 5
+```text
+Day 5 = domykamy nie tylko demo, ale i wdrożenie.
+Dziś 3 cele:
+1) umiem pokazać rozwiązanie,
+2) umiem obronić decyzje i ryzyka,
+3) mam realny plan 30 dni po kursie.
+```
+
+### CP2 — Struktura demo końcowego
+```text
+Struktura demo końcowego:
+1) problem,
+2) użytkownik i scenariusz,
+3) pokaz przepływu,
+4) co zrobił agent, a co sprawdził człowiek,
+5) ryzyka i następny krok.
+```
+
+### CP3 — Język decyzji technicznych
+```text
+Mówimy tak:
+- wybraliśmy X, bo Y,
+- nie robimy jeszcze Z, bo ryzyko/koszt,
+- następny krok po pilocie: A.
+Krótko, konkretnie, bez defensywy.
+```
+
+### CP4 — Cloud vs on-prem
+```text
+Cloud-max i on-prem to ta sama metodyka w innych ograniczeniach:
+- małe zadania,
+- dobry kontekst,
+- diff + test + review,
+- jawne approvale,
+- świadome koszty i ryzyka.
+```
+
+### CP5 — Scope dla agentic workflows
+```text
+Zasada: 1 ból → 1 integracja → 3 guardraile → pomiar po 14 dniach.
+Nie budujemy "platformy wszystkiego" na start.
+```
+
+### CP6 — Plan 30 dni
+```text
+Plan 30 dni:
+- 1 proces,
+- 1 właściciel,
+- 1 metryka sukcesu,
+- 1 guardrail,
+- 1 termin przeglądu.
+Małe wdrożenie > wielka prezentacja bez efektu.
+```
+
+### CP7 — Zamknięcie kursu
+```text
+Najważniejsze po kursie:
+- zaczynaj od małych, mierzalnych use case’ów,
+- trzymaj jeden główny workflow,
+- zawsze czytaj diff i testuj,
+- nazywaj ryzyka i granice,
+- adaptuj narzędzia do realiów firmy.
+Dziękuję za wspólną misję 🤓
+```
 
 ## Notatki trenerskie do Day 5
 - Pilnuj, by Day 5 nie zamienił się w luźne Q&A bez struktury. Trzymaj agendę i artefakty końcowe.
