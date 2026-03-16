@@ -241,3 +241,31 @@ To nie są dwa różne światy — to ten sam workflow, tylko inna granica zaufa
   2. jeden manual approval gate,
   3. jeden artefakt audytowy per build,
   4. dopiero potem eksperyment z auto-fix na branchu roboczym.
+
+## 9) Krótki snippet trenerski (G2) — „cloud max” vs „on-prem adaptacja”
+
+### 9.1 Co mówię (90–120 sekund)
+„Najpierw pokażę wersję cloud-max, bo tam najszybciej widać pełny potencjał: szybkie uruchomienie, wygodne integracje i krótkie pętle feedbacku.
+Potem dokładnie ten sam workflow mapujemy do on-prem: zamiast usług cloud mamy lokalny endpoint modelu, zamiast domyślnych integracji — świadomie ustawione bramki i audyt.
+To nie jest zmiana filozofii, tylko zmiana granicy zaufania.”
+
+### 9.2 Co wklejam na chat (wersja ultra-krótka)
+```text
+Cloud demo (max możliwości):
+- PR -> AI review -> testy -> approval -> merge/deploy
+
+Adaptacja on-prem:
+- ten sam flow,
+- model i sekrety w sieci wewnętrznej,
+- mocniejsze approvale i ślad audytowy.
+```
+
+### 9.3 Co pokazuję na slajdzie (bez deep dive infra)
+- **Cloud-max (demo):** GitHub Actions + CLI agent + artefakt raportu + required reviewer.
+- **On-prem (adaptacja):** Jenkins/GHES + lokalny endpoint modelu + `withCredentials` + manual gate.
+- **Wspólny rdzeń:** prompt → diff → test → review → approval.
+
+### 9.4 Czego nie rozwijam na zajęciach (scope guard)
+- Nie wchodzimy w szczegóły hardeningu runnerów, segmentacji sieci i pełnej architektury IAM.
+- Nie robimy benchmarków modeli „kto szybszy”.
+- Nie obiecujemy full autonomy bez człowieka w pętli.

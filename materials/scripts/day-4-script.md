@@ -22,6 +22,7 @@ Po Day 4 uczestnicy mają:
 - Failure scenario na dziś: `materials/04-demo-scenarios.md#f5--ryzyko-danych-wrażliwych`
 - Dzień poprzedni: `materials/scripts/day-3-script.md`
 - Dzień następny: `materials/scripts/day-5-script.md`
+- Snippet cloud→on-prem (G2): `materials/research/cicd-agent-workflows-cloud-vs-onprem.md#9-krótki-snippet-trenerski-g2--cloud-max-vs-on-prem-adaptacja`
 
 ## Agenda dnia
 - 09:00–09:20 — Handoff z Day 3: co już działa i gdzie dziś grozi chaos

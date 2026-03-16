@@ -22,6 +22,7 @@ Po Day 5 uczestnicy mają:
 - Failure scenario na dziś: `materials/04-demo-scenarios.md#f3--testy-przechodzą-ale-wymaganie-biznesowe-niespełnione`
 - Opcjonalny most mobile (10–15 min): `materials/research/mobile-extension-micro-support.md`
 - Dzień poprzedni: `materials/scripts/day-4-script.md`
+- Snippet cloud→on-prem (G2): `materials/research/cicd-agent-workflows-cloud-vs-onprem.md#9-krótki-snippet-trenerski-g2--cloud-max-vs-on-prem-adaptacja`
 - Indeks materiałów (do dodania w późniejszym TODO): `materials/12-materials-index.md`
 
 ## Agenda dnia
