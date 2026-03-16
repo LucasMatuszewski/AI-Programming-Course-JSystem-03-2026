@@ -529,3 +529,89 @@ Po Day 1 uczestnicy mają:
 
 ### Szacowany czas
 - 15 min
+
+## Zgodność z programem JSystems (Day 1)
+- **1.1 Wprowadzenie do AI w programowaniu + narzędzia** → bloki 09:00–10:25 (onboarding, quiz, mission kickoff, safe setup).
+- **1.2 Prompt engineering fundamentals** → bloki 10:25–13:00 (pierwsze prompty, scope MVP, PRD + AGENTS).
+- **1.3 Bezpieczna praca i ograniczenia modeli** → bloki 14:15–15:45 (review loop, sandbox/WSL/bash-vs-PowerShell).
+- **1.4 Przygotowanie do pracy projektowej na kolejne dni** → blok 15:45–16:00 (domknięcie dnia, transfer do Day 2).
+- **Uzasadniona adaptacja trenerska:** moduł WezTerm (14:40–15:20) działa jako praktyczne wsparcie ergonomii terminal-first i nie zmienia zakresu merytorycznego programu.
+
+## Prompty trenerskie Day 1 (inline)
+### D1-P1 — Start kursu i kontrakt pracy
+```text
+Jesteś asystentem trenera na szkoleniu „AI w programowaniu” dla grupy bankowej (mixed seniority: Java, DB/SQL, full-stack, low-code).
+Cel: przygotuj krótki kontrakt pracy na Day 1 (7 punktów), z naciskiem na: bezpieczeństwo, małe kroki, review outputu AI, komunikację na Zoom.
+Styl: prosty, profesjonalny, lekko motywujący, bez korpo-frazeologii.
+Zwróć wynik jako lista punktowana PL.
+```
+
+### D1-P2 — Quiz calibration helper
+```text
+Na podstawie wyników anonimowego quizu Day 1 zaproponuj adaptację planu dnia.
+Wejście:
+- token/context window: [niski|średni|wysoki]
+- hallucination vs confidence: [niski|średni|wysoki]
+- agent vs assistant: [niski|średni|wysoki]
+Wyjście:
+1) co skrócić (max 2 bloki),
+2) co wzmocnić (max 3 mikrointerwencje po 5-10 min),
+3) gotowy tekst komunikatu dla grupy (3-4 zdania, pozytywnie).
+```
+
+### D1-P3 — MVP scope prompt
+```text
+Kontekst: szkolenie Day 1, projekt tygodnia „NBP DevCopilot”.
+Zadanie: zaproponuj scope MVP na 1 tydzień warsztatowy.
+Wymagania:
+- sekcje: Must-have, Later, Out-of-scope,
+- dla każdego elementu: 1 zdanie wartości biznesowej + 1 ryzyko,
+- uwzględnij środowisko regulowane (audit trail, approvals, bezpieczeństwo danych),
+- wynik po polsku, zwięzły i gotowy do wklejenia na czat.
+```
+
+### D1-P4 — PRD + AGENTS bootstrap
+```text
+Stwórz draft mini-PRD i mini-AGENTS.md dla modułu „Incident triage helper”.
+Format:
+- PRD: cel, użytkownik, 3 user stories, acceptance criteria, ograniczenia bezpieczeństwa.
+- AGENTS.md: granice repo, zasady uruchamiania komend, review checklist, kiedy zatrzymać agenta i eskalować do człowieka.
+Warunki: mały scope, zero „magii”, testowalność, język polski.
+```
+
+### D1-P5 — First visible artifact task
+```text
+Wygeneruj plan jednego małego artefaktu repo na Day 1.
+Do wyboru: README modułu / szkic endpointu / kontrakt API / test placeholder.
+Daj wynik w formacie:
+1) cel artefaktu,
+2) definicja DONE (4 punkty),
+3) ryzyka (max 3),
+4) checklist review przed commitem.
+```
+
+## Szybkie copy-paste dla trenera (Day 1)
+```text
+START DNIA:
+Tryb pracy: małe kroki, szybkie efekty, bezpieczeństwo domyślne. Pytania wrzucamy od razu na czat, 👍 = jasne/działa.
+```
+
+```text
+QUIZ INTRO:
+Quiz jest anonimowy i bez ocen. Służy tylko do kalibracji tempa oraz dobrania przykładów pod Waszą codzienną pracę.
+```
+
+```text
+MVP SCOPE:
+MVP ma być małe, przewidywalne i testowalne. Najpierw wartość + bezpieczeństwo, dopiero potem dodatki.
+```
+
+```text
+SAFE DEFAULTS:
+Pracujemy na dedykowanym branchu/repo, sandbox + approvals ON, małe taski, czytamy każdy diff, odpalamy celowany test i dopiero commit.
+```
+
+```text
+KONIEC DNIA:
+Brak obowiązkowej pracy domowej. Opcjonalnie: domknij niedokończony fragment i zapisz 1 pytanie na jutro.
+```
