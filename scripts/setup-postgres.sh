@@ -66,6 +66,7 @@ load_env() {
   # shellcheck disable=SC1090
   . "$ENV_FILE"
   set +a
+  : "${POSTGRES_PORT:=5433}"
 }
 
 docker_ready() {
@@ -273,7 +274,7 @@ apply_seed() {
 
 verify_db() {
   run_compose -f "$REPO_ROOT/compose.yaml" exec -T postgres \
-    psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT id, name, email FROM clients ORDER BY id;" 
+    psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT id, name, email FROM clients ORDER BY id;"
 }
 
 main() {
