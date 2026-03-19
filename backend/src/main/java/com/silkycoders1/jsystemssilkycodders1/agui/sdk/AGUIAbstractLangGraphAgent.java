@@ -1,10 +1,10 @@
 package com.silkycoders1.jsystemssilkycodders1.agui.sdk;
 
-import com.silkycoders1.jsystemssilkycodders1.agui.protocol.EventFactory;
-import com.silkycoders1.jsystemssilkycodders1.agui.protocol.RunAgentParameters;
-import com.silkycoders1.jsystemssilkycodders1.agui.protocol.event.BaseEvent;
-import com.silkycoders1.jsystemssilkycodders1.agui.protocol.message.BaseMessage;
-import com.silkycoders1.jsystemssilkycodders1.agui.protocol.message.Role;
+import com.agui.core.agent.RunAgentParameters;
+import com.agui.core.event.BaseEvent;
+import com.agui.core.message.BaseMessage;
+import com.agui.core.message.Role;
+import com.agui.server.EventFactory;
 import org.bsc.langgraph4j.GraphInput;
 import org.bsc.langgraph4j.GraphResult;
 import org.bsc.langgraph4j.GraphStateException;

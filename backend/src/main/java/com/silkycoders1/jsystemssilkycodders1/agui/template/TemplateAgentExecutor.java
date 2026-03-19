@@ -1,7 +1,7 @@
 package com.silkycoders1.jsystemssilkycodders1.agui.template;
 
-import com.silkycoders1.jsystemssilkycodders1.agui.protocol.RunAgentParameters;
-import com.silkycoders1.jsystemssilkycodders1.agui.protocol.message.BaseMessage;
+import com.agui.core.agent.RunAgentParameters;
+import com.agui.core.message.BaseMessage;
 import com.silkycoders1.jsystemssilkycodders1.agui.sdk.AGUIAbstractLangGraphAgent;
 import com.silkycoders1.jsystemssilkycodders1.agui.sdk.Approval;
 import com.silkycoders1.jsystemssilkycodders1.agui.sdk.GraphData;

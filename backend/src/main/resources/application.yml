@@ -1,6 +1,8 @@
 spring:
   application:
     name: loan-copilot-backend
+  config:
+    import: optional:file:../.env[.properties]
 
 server:
   port: 8080

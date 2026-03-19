@@ -1,6 +1,7 @@
 package com.silkycoders1.jsystemssilkycodders1.agui.sdk;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.CacheControl;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,13 +31,14 @@ public class AGUISSEController {
         var body = agent.run(parameters.toRunAgentParameters())
                 .map(event -> {
                     try {
-                        return "data: %s\n\n".formatted(objectMapper.writeValueAsString(event));
+                        return " %s".formatted(objectMapper.writeValueAsString(event));
                     } catch (Exception exception) {
                         throw new IllegalStateException("Unable to serialize AG-UI event", exception);
                     }
                 });
 
         return ResponseEntity.ok()
+                .cacheControl(CacheControl.noCache())
                 .contentType(MediaType.TEXT_EVENT_STREAM)
                 .body(body);
     }
