@@ -14,8 +14,8 @@ Read the relevant sections before implementing. If code, comments, config, or do
 - `frontend/AGENTS.md` - frontend-specific rules
 
 ## Current Stack
-- Backend: Spring Boot `3.5.9`, Java `21`, Maven, Spring AI `1.1.0`, LangGraph4j `1.8.8`, AG-UI Java SDK `0.0.1`
-- Frontend: Next.js `15.4.8`, React `18.3.1`, TypeScript `5`, CopilotKit `1.53.0`, AG-UI client `0.0.35`, Tailwind CSS `4`
+- Backend: Spring Boot, Java 21, Maven, Spring AI, LangGraph4j, AG-UI Java SDK
+- Frontend: Next.js, React, TypeScript, CopilotKit, AG-UI client, Tailwind CSS
 - Runtime config: OpenRouter settings come from `.env` and `backend/src/main/resources/application.yml`
 
 ## Project Structure
@@ -26,7 +26,7 @@ Read the relevant sections before implementing. If code, comments, config, or do
 - `docker/` - PostgreSQL init assets for `compose.yaml`
 - `ag-ui/` - Git submodule with the AG-UI community Java SDK used by the newer `langgraph4j-copilotkit` template; it is external source code, not part of this app, and should not be modified unless the task explicitly targets the SDK integration itself
 
-This project uses the newer `langgraph4j-copilotkit` template approach, where AG-UI behavior comes from the community Java SDK instead of a custom in-repo AG-UI protocol implementation. That SDK exposes the agent/UI integration layer, including the agent-driven UI control model used by the app.
+The AG-UI behavior should comes from the community Java SDK, so do NOT add custom in-repo AG-UI protocol implementation. That SDK exposes the agent/UI integration layer, including the agent-driven UI control model used by the app.
 
 Frontend structure will grow beyond the current starter shape. Keep new code organized and predictable as the app expands: separate route files, reusable UI components, domain logic, and tests instead of letting everything accumulate inside `src/app/page.tsx`.
 
@@ -83,9 +83,8 @@ Use the real commands that exist in the repo today:
 - Frontend unit/integration tests: `cd frontend; npm run test`
 - Frontend E2E tests: `cd frontend; npm run test:e2e`
 - Frontend run check: `cd frontend; npm run dev`
-- Full app scripted setup: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup-copilot-template.ps1` or `bash ./scripts/setup-copilot-template.sh`
+- Full app scripted setup (use only to install/build dependencies): `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup-copilot-template.ps1` or `bash ./scripts/setup-copilot-template.sh`
 - Full app scripted start: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\start-copilot-template.ps1` or `bash ./scripts/start-copilot-template.sh`
-- One-command setup and start: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run-copilot-template.ps1` or `bash ./scripts/run-copilot-template.sh`
 
 Frontend work is expected to use Vitest for unit/integration coverage and Playwright for E2E coverage. If the required test scripts or configuration are missing for the task, add them instead of skipping tests.
 

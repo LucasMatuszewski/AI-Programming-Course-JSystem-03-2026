@@ -12,3 +12,4 @@ Use this file for frontend-specific rules. Keep frontend details here instead of
 - Use `PascalCase` for components and camelCase for functions and variables.
 - Keep formatting and linting rules aligned with Prettier and ESLint as this area evolves.
 - Add frontend-specific guidance here as it is learned instead of growing the root `AGENTS.md`.
+- Rules for writing tests should be added in `frontend\tests\AGENTS.md`, not here.
