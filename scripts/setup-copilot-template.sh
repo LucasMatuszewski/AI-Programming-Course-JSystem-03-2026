@@ -42,8 +42,16 @@ ensure_java() {
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+MAVEN_USER_HOME="${MAVEN_USER_HOME:-$REPO_ROOT/.m2}"
+MAVEN_REPO_LOCAL="${MAVEN_REPO_LOCAL:-$MAVEN_USER_HOME/repository}"
+NPM_CACHE_DIR="${npm_config_cache:-$REPO_ROOT/.npm-cache}"
 
 cd "$REPO_ROOT"
+mkdir -p "$MAVEN_USER_HOME"
+mkdir -p "$MAVEN_REPO_LOCAL"
+mkdir -p "$NPM_CACHE_DIR"
+export MAVEN_USER_HOME
+export npm_config_cache="$NPM_CACHE_DIR"
 
 command -v git >/dev/null 2>&1 || { echo "git is required." >&2; exit 1; }
 
@@ -59,19 +67,19 @@ fi
 
 if [ -f ./mvnw ] && [ -f ./pom.xml ]; then
   log "Building root Maven reactor, including AG-UI community SDK."
-  ./mvnw clean install -Dgpg.skip=true -Dmaven.javadoc.skip=true -Plocal
+  ./mvnw -Dmaven.repo.local="$MAVEN_REPO_LOCAL" clean install -Dgpg.skip=true -Dmaven.javadoc.skip=true -Plocal
 else
   log "Root Maven wrapper/pom not found yet. Skipping root Maven bootstrap."
 fi
 
 if [ -f ./backend/mvnw ] && [ -f ./ag-ui/sdks/community/java/pom.xml ]; then
   log "Building AG-UI community Java SDK locally for backend usage."
-  (cd backend && ./mvnw -f ../ag-ui/sdks/community/java/pom.xml install -Dmaven.test.skip=true -Dgpg.skip=true -Dmaven.javadoc.skip=true -Plocal)
+  (cd backend && ./mvnw -Dmaven.repo.local="$MAVEN_REPO_LOCAL" -f ../ag-ui/sdks/community/java/pom.xml install -Dmaven.test.skip=true -Dgpg.skip=true -Dmaven.javadoc.skip=true -Plocal)
 fi
 
 if [ -f ./backend/mvnw ]; then
   log "Compiling backend module."
-  (cd backend && ./mvnw -DskipTests compile)
+  (cd backend && ./mvnw -Dmaven.repo.local="$MAVEN_REPO_LOCAL" -DskipTests compile)
 fi
 
 if [ -f ./frontend/package.json ] && command -v npm >/dev/null 2>&1; then

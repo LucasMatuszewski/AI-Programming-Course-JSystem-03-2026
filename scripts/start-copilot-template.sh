@@ -92,7 +92,7 @@ elif [ -f ./backend/mvnw ]; then
   log "Root Maven reactor not found. Falling back to backend module start."
   (
     cd "$REPO_ROOT/backend"
-    exec ./mvnw spring-boot:run \
+    exec ./mvnw clean spring-boot:run \
       > >(sed -u 's/^/[BE] /') \
       2> >(sed -u 's/^/[BE] /' >&2)
   ) &
