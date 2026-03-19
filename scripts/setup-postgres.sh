@@ -47,7 +47,7 @@ ensure_env_file() {
   fi
 
   if [ -f "$ENV_EXAMPLE" ]; then
-    cp "$ENV_EXAMPLE" "$ENV_FILE"
+    sed 's/\r//' "$ENV_EXAMPLE" > "$ENV_FILE"
     log "Created .env from .env.example."
     return
   fi
@@ -64,7 +64,8 @@ EOF
 load_env() {
   set -a
   # shellcheck disable=SC1090
-  . "$ENV_FILE"
+  # Strip Windows CRLF (\r) before sourcing — .env.example may have been committed with CRLF
+  . <(sed 's/\r//' "$ENV_FILE")
   set +a
 }
 
