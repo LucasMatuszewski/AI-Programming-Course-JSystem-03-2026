@@ -22,6 +22,9 @@ Dokument ma służyć jako instrukcja wykonawcza dla agenta implementującego ro
 - Baza danych to PostgreSQL uruchamiany przez obecny [`compose.yaml`](/C:/Users/labuser/Documents/AI-Programming-Course-JSystem-03-2026/compose.yaml).
 - Frontend powstaje jako osobna aplikacja `frontend/` w Next.js, na wzór `copilot-app`.
 - Integracja agentowa opiera się na `langgraph4j-ag-ui-sdk` oraz `copilot-app`, nie na zdeprecjonowanym `langgraph4j-ag-ui-impl`.
+- W MVP używamy oryginalnego Java Community SDK AG-UI przez git submodule `ag-ui` w root repo oraz lokalny build Maven całego reactora.
+- W MVP nie implementujemy własnego fallbacku AG-UI po stronie Java.
+- To jest rozwiązanie przejściowe na potrzeby kursowego template/MVP. Produkcyjnie lepiej użyć oficjalnie publikowanych artefaktów Maven, a jeśli nadal ich nie będzie, utrzymywać osobny build i publikację artefaktów poza repo aplikacji.
 
 ---
 
@@ -125,7 +128,12 @@ PRD wymaga interfejsu chatowego, wykrywania intentu, dynamicznego formularza, ex
 - stary `langgraph4j-ag-ui-impl`, oznaczony jako deprecated,
 - nowy `langgraph4j-ag-ui-sdk`, oparty o oficjalny AG-UI Community SDK i `HttpAgent` po stronie frontendowej.
 
-Aktualne repo projektu ma prosty backend Spring Boot w [`backend/pom.xml`](/C:/Users/labuser/Documents/AI-Programming-Course-JSystem-03-2026/backend/pom.xml) i nie zawiera jeszcze frontendu.
+Repo referencyjne z `ag-ui-sdk` działa w praktyce przez:
+
+- git submodule `ag-ui`,
+- build całego root reactora Maven,
+- lokalne zbudowanie artefaktów `com.ag-ui.community:*`,
+- uruchomienie modułu `langgraph4j-ag-ui-sdk` dopiero po tym kroku.
 
 ## Decyzja
 Implementacja PoC ma używać:
@@ -136,6 +144,15 @@ Implementacja PoC ma używać:
 - wzorca z `langgraph4j-ag-ui-sdk` oraz `copilot-app`.
 
 Nie używamy `langgraph4j-ag-ui-impl`.
+Nie używamy też własnej ręcznej implementacji protokołu AG-UI po stronie Java.
+
+W MVP wariant AG-UI Community SDK wdrażamy dokładnie tak jak w template:
+
+- w root repo utrzymujemy git submodule `ag-ui`,
+- podczas setupu wykonujemy `git submodule update --init --remote`,
+- następnie wykonujemy root build Maven, który buduje także `ag-ui/sdks/community/java`,
+- backend konsumuje oryginalne artefakty `com.ag-ui.community:*` z lokalnego builda,
+- uruchomienie backendu i frontendu automatyzujemy skryptami repo.
 
 Docelowy flow:
 - `frontend` rozmawia z lokalnym route CopilotKit,
@@ -146,18 +163,21 @@ Docelowy flow:
 ## Konsekwencje
 - PoC będzie zgodne z aktualnym kierunkiem integracji `langgraph4j-copilotkit`.
 - Unikamy ręcznego parsowania SSE w custom adapterze TypeScript.
-- Implementacja będzie prostsza do utrzymania i bliższa wzorcowi referencyjnemu.
+- Implementacja będzie bliższa wzorcowi referencyjnemu niż własny fallback AG-UI.
+- Setup lokalny będzie wymagał submodule i root builda, więc README i skrypty startowe są częścią rozwiązania MVP.
 - Agent implementujący będzie musiał przenieść przykładowe klasy z wzorca do modułu produkcyjnego, bo sample w `langgraph4j-copilotkit` siedzą częściowo w `src/test/java`.
 
 ## Ryzyka
 - Zależności CopilotKit i AG-UI mogą wymagać drobnego dopasowania wersji.
+- Uczestnik kursu może zapomnieć o inicjalizacji submodule albo uruchomić build tylko dla jednego modułu zamiast dla root reactora.
 - Integracja `useCoAgent` i własnych komponentów UI może wymagać iteracji.
 - Przenoszenie wzorca z repo referencyjnego bez selekcji grozi nadmiarem kodu.
 
 ## Trigger rewizji decyzji
 - Jeśli `HttpAgent` okaże się niewystarczający dla planowanego UI.
 - Jeśli frontend będzie wymagał niestandardowego mapowania eventów.
-- Jeśli wersje bibliotek będą wymuszały przejście na własny adapter.
+- Jeśli oficjalne artefakty Maven staną się stabilnie dostępne i będzie można zrezygnować z submodule.
+- Jeśli zespół zdecyduje się utrzymywać osobny build/publikację AG-UI poza repo aplikacji.
 
 ---
 
@@ -557,32 +577,35 @@ W PoC należy przyjąć prostą konfigurację przez zmienne środowiskowe.
 
 Backend:
 
-- `AI_PROVIDER=openai|ollama|github-models`
-- `AI_BASE_URL=...`
-- `AI_API_KEY=...`
-- `AI_MODEL=...`
-- `AGUI_AGENT_PATH=/sse/loan-decision`
+- `OPENROUTER_API_KEY=...`
+- `OPENROUTER_BASE_URL=https://openrouter.ai/api/v1`
+- `OPENROUTER_MODEL=deepseek/deepseek-v3.2`
+- `OPENROUTER_FALLBACK_MODEL=z-ai/glm-4.7-flash`
+- `OPENROUTER_TEMPERATURE=0.1`
+- `AGUI_AGENT_PATH=/sse/{agentId}` albo konkretna ścieżka zgodna z modułem backendowym
 - `POSTGRES_URL=jdbc:postgresql://localhost:5433/...`
 - `POSTGRES_USER=...`
 - `POSTGRES_PASSWORD=...`
 
 Frontend:
 
-- `LOAN_AGENT_URL=http://localhost:8080/sse/loan-decision`
-- `NEXT_PUBLIC_RUNTIME_URL=/api/copilotkit`
+- `AGUI_BACKEND_URL=http://localhost:8080/sse/{agentId}` (np. `loan-decision`)
+- `NEXT_PUBLIC_RUNTIME_URL=/api/copilotkit` jeśli zostanie jawnie wystawione w UI
 
-Rekomendowane zachowanie konfiguracyjne:
-- jeśli `AI_PROVIDER=openai`, użyć `AI_API_KEY` i `AI_MODEL`, np. `gpt-4o-mini`
-- jeśli `AI_PROVIDER=ollama`, użyć `AI_BASE_URL=http://localhost:11434` i modelu np. `qwen2.5:7b`
-- jeśli `AI_PROVIDER=github-models`, użyć kompatybilnego endpointu OpenAI-compatible
+Rekomendowane zachowanie konfiguracyjne w MVP:
+- backend używa OpenAI-compatible endpointu OpenRouter,
+- domyślny model to `deepseek/deepseek-v3.2`,
+- fallback model pozostaje w konfiguracji na wypadek późniejszego przełączenia lub testów.
 
 README implementacyjne powinno później zawierać:
 1. jak uruchomić Postgres,
-2. jak ustawić `.env` backendu,
-3. jak ustawić `.env.local` frontendu,
-4. jak uruchomić backend,
-5. jak uruchomić frontend,
-6. jak uruchomić seed i sprawdzić demo cases.
+2. jak zainicjalizować `ag-ui` submodule,
+3. jak wykonać root build Maven dla template,
+4. jak ustawić `.env`,
+5. jak uruchomić backend,
+6. jak uruchomić frontend,
+7. jak użyć skryptów `setup/start/run`,
+8. jak uruchomić seed i sprawdzić demo cases.
 
 ## Konsekwencje
 - Agent implementujący będzie miał jednoznaczny kontrakt konfiguracyjny.
@@ -601,10 +624,13 @@ README implementacyjne powinno później zawierać:
 # Plan implementacji
 
 ## Faza 1: Integracja referencyjnego boilerplate
-1. Skopiować wzorzec backendowy z `langgraph4j-ag-ui-sdk` do `backend/`.
-2. Przenieść sample app do źródeł produkcyjnych i dostosować pakiety do tego repo.
-3. Dodać frontend `frontend/` na wzór `copilot-app`.
-4. Podłączyć `CopilotKit` + `HttpAgent`.
+1. Dodać `ag-ui` jako git submodule w root repo.
+2. Odtworzyć wzorzec backendowy z `langgraph4j-ag-ui-sdk` w modelu zgodnym z template.
+3. Włączyć root build Maven, który buduje także `ag-ui/sdks/community/java`.
+4. Przenieść sample app do źródeł produkcyjnych i dostosować pakiety do tego repo.
+5. Dodać frontend `frontend/` na wzór `copilot-app`.
+6. Podłączyć `CopilotKit` + `HttpAgent`.
+7. Dodać skrypty `setup/start/run`, aby kursanci mogli uruchamiać całość przewidywalnie.
 
 ## Faza 2: Model danych i seed
 1. Przebudować `docker/postgres/init`.
