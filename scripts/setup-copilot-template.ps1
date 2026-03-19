@@ -45,6 +45,14 @@ $repoRoot = Split-Path -Parent $PSScriptRoot
 Push-Location $repoRoot
 
 try {
+    $env:MAVEN_USER_HOME = Join-Path $repoRoot ".m2"
+    New-Item -ItemType Directory -Force -Path $env:MAVEN_USER_HOME | Out-Null
+    $mavenRepoLocal = Join-Path $env:MAVEN_USER_HOME "repository"
+    $npmCache = Join-Path $repoRoot ".npm-cache"
+    New-Item -ItemType Directory -Force -Path $mavenRepoLocal | Out-Null
+    New-Item -ItemType Directory -Force -Path $npmCache | Out-Null
+    $env:npm_config_cache = $npmCache
+
     if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
         throw "git is required."
     }
@@ -61,7 +69,7 @@ try {
 
     if ((Test-Path ".\mvnw.cmd") -and (Test-Path ".\pom.xml")) {
         Write-Info "Building root Maven reactor, including AG-UI community SDK."
-        cmd /c "mvnw.cmd clean install -Dgpg.skip=true -Dmaven.javadoc.skip=true -Plocal"
+        cmd /c "mvnw.cmd -Dmaven.repo.local=""$mavenRepoLocal"" clean install -Dgpg.skip=true -Dmaven.javadoc.skip=true -Plocal"
     }
     else {
         Write-Warning "Root Maven wrapper/pom not found yet. Skipping root Maven bootstrap."
@@ -71,7 +79,7 @@ try {
         Write-Info "Building AG-UI community Java SDK locally for backend usage."
         Push-Location ".\backend"
         try {
-            cmd /c ".\mvnw.cmd -f ..\ag-ui\sdks\community\java\pom.xml install -Dmaven.test.skip=true -Dgpg.skip=true -Dmaven.javadoc.skip=true -Plocal"
+            cmd /c ".\mvnw.cmd -Dmaven.repo.local=""$mavenRepoLocal"" -f ..\ag-ui\sdks\community\java\pom.xml install -Dmaven.test.skip=true -Dgpg.skip=true -Dmaven.javadoc.skip=true -Plocal"
         }
         finally {
             Pop-Location
@@ -82,7 +90,7 @@ try {
         Write-Info "Compiling backend module."
         Push-Location ".\backend"
         try {
-            cmd /c ".\mvnw.cmd -DskipTests compile"
+            cmd /c ".\mvnw.cmd -Dmaven.repo.local=""$mavenRepoLocal"" -DskipTests compile"
         }
         finally {
             Pop-Location

@@ -51,9 +51,11 @@ function Start-ManagedProcess {
 
     $startInfo = New-Object System.Diagnostics.ProcessStartInfo
     $startInfo.FileName = $FilePath
-    foreach ($argument in $Arguments) {
-        [void]$startInfo.ArgumentList.Add($argument)
+    # ArgumentList (StringCollection) is .NET 5+ only; use Arguments string for PS 5.1 / .NET Framework compatibility.
+    $escapedArgs = $Arguments | ForEach-Object {
+        if ($_ -match '[\s"]') { "`"$($_ -replace '"', '\"')`"" } else { $_ }
     }
+    $startInfo.Arguments = $escapedArgs -join ' '
     $startInfo.WorkingDirectory = $WorkingDirectory
     $startInfo.UseShellExecute = $false
     $startInfo.RedirectStandardOutput = $true
@@ -148,7 +150,7 @@ try {
         $backendProcess = Start-ManagedProcess `
             -Name "BE" `
             -FilePath "cmd.exe" `
-            -Arguments @("/c", ".\mvnw.cmd", "spring-boot:run") `
+            -Arguments @("/c", ".\mvnw.cmd", "clean", "spring-boot:run") `
             -WorkingDirectory (Join-Path $repoRoot "backend")
     }
     else {
