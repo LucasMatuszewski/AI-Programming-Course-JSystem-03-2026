@@ -3,12 +3,13 @@
 import React, { startTransition, useState } from "react";
 import { useCoAgent } from "@copilotkit/react-core";
 import { LoanConversationPanel } from "@/components/chat/LoanConversationPanel";
+import { LoanTopbar } from "@/components/layout/LoanTopbar";
 import { CustomerProfileCard } from "@/components/loan/CustomerProfileCard";
 import { DecisionSummaryCard } from "@/components/loan/DecisionSummaryCard";
 import { EmployeeActionCard } from "@/components/loan/EmployeeActionCard";
 import { LoanApplicationFormCard } from "@/components/loan/LoanApplicationFormCard";
 import { lookupCustomerProfile, recordEmployeeAction, submitLoanApplication } from "@/lib/loan-copilot/api";
-import { initialLoanCopilotState } from "@/lib/loan-copilot/state";
+import { initialLoanCopilotState, normalizeLoanCopilotState } from "@/lib/loan-copilot/state";
 import {
   EmployeeDecisionAction,
   LoanCopilotState,
@@ -31,43 +32,29 @@ function mergeFormState(state: LoanCopilotState, values: LoanFormValues): LoanCo
 }
 
 export function LoanCopilotWorkspace() {
-  const { state, setState } = useCoAgent<LoanCopilotState>({
+  const { state, setState } = useCoAgent<Record<string, unknown> | LoanCopilotState>({
     name: "agent",
     initialState: initialLoanCopilotState
   });
+  const normalizedState = normalizeLoanCopilotState(state as LoanCopilotState | Record<string, unknown> | undefined);
   const [busy, setBusy] = useState(false);
   const [workflowError, setWorkflowError] = useState("");
 
   const updateField = (field: keyof LoanFormValues, value: string) => {
     startTransition(() => {
       const nextValues = {
-        ...state.form.values,
+        ...normalizedState.form.values,
         [field]: value
       };
-      const editedFieldKeys = state.form.sourceFieldKeys.includes(field)
-        ? Array.from(new Set([...state.form.editedFieldKeys, field]))
-        : state.form.editedFieldKeys;
+      const editedFieldKeys = normalizedState.form.sourceFieldKeys.includes(field)
+        ? Array.from(new Set([...normalizedState.form.editedFieldKeys, field]))
+        : normalizedState.form.editedFieldKeys;
 
       setState({
-        ...mergeFormState(state, nextValues),
+        ...mergeFormState(normalizedState, nextValues),
         form: {
-          ...mergeFormState(state, nextValues).form,
+          ...mergeFormState(normalizedState, nextValues).form,
           editedFieldKeys
-        }
-      });
-    });
-  };
-
-  const openForm = () => {
-    startTransition(() => {
-      setState({
-        ...state,
-        showLoanForm: true,
-        currentStep: "form",
-        form: {
-          ...state.form,
-          shownFieldKeys: getVisibleFieldKeys(state.form.values),
-          statusMessage: "Capture the customer identifier first to request prefilled details."
         }
       });
     });
@@ -79,21 +66,21 @@ export function LoanCopilotWorkspace() {
 
     try {
       const response = await lookupCustomerProfile({
-        identifierType: state.form.values.identifierType,
-        identifierValue: state.form.values.identifierValue,
-        sessionId: state.sessionId
+        identifierType: normalizedState.form.values.identifierType,
+        identifierValue: normalizedState.form.values.identifierValue,
+        sessionId: normalizedState.sessionId
       });
 
       startTransition(() => setState(response.state));
     } catch (error) {
       startTransition(() => {
         setState({
-          ...state,
+          ...normalizedState,
           showLoanForm: true,
           currentStep: "form",
           form: {
-            ...state.form,
-            errors: state.form.values.identifierValue
+            ...normalizedState.form,
+            errors: normalizedState.form.values.identifierValue
               ? {}
               : { identifierValue: "Customer identifier is required." },
             statusMessage: "Backend lookup is unavailable. Continue with manual entry if needed."
@@ -107,16 +94,16 @@ export function LoanCopilotWorkspace() {
   };
 
   const handleSubmit = async () => {
-    const errors = validateLoanForm(state.form.values);
+    const errors = validateLoanForm(normalizedState.form.values);
 
     if (Object.keys(errors).length > 0) {
       startTransition(() => {
         setState({
-          ...state,
+          ...normalizedState,
           showLoanForm: true,
           currentStep: "form",
           form: {
-            ...state.form,
+            ...normalizedState.form,
             errors
           }
         });
@@ -129,20 +116,20 @@ export function LoanCopilotWorkspace() {
 
     try {
       const response = await submitLoanApplication({
-        ...state.form.values,
-        employeeId: state.employeeId,
-        sessionId: state.sessionId
+        ...normalizedState.form.values,
+        employeeId: normalizedState.employeeId,
+        sessionId: normalizedState.sessionId
       });
 
       startTransition(() => setState(response.state));
     } catch (error) {
       startTransition(() => {
         setState({
-          ...state,
+          ...normalizedState,
           showLoanForm: true,
           currentStep: "form",
           form: {
-            ...state.form,
+            ...normalizedState.form,
             statusMessage: "Submission requires the backend application contract to be available."
           }
         });
@@ -162,10 +149,10 @@ export function LoanCopilotWorkspace() {
     overrideReason?: string;
     note?: string;
   }) => {
-    if (!state.recommendation?.applicationId) {
+    if (!normalizedState.recommendation?.applicationId) {
       startTransition(() => {
         setState({
-          ...state,
+          ...normalizedState,
           employeeAction: {
             action,
             overrideReason,
@@ -178,8 +165,8 @@ export function LoanCopilotWorkspace() {
     }
 
     try {
-      const response = await recordEmployeeAction(state.recommendation.applicationId, {
-        employeeId: state.employeeId,
+      const response = await recordEmployeeAction(normalizedState.recommendation.applicationId, {
+        employeeId: normalizedState.employeeId,
         action,
         overrideReason,
         note
@@ -193,18 +180,7 @@ export function LoanCopilotWorkspace() {
 
   return (
     <main className="loan-shell">
-      <header className="loan-topbar">
-        <div>
-          <p className="topbar-kicker">Narodowy Bank Polski</p>
-          <h1 className="topbar-title">Loan Decision Copilot</h1>
-        </div>
-        <div className="topbar-meta">
-          <span className="source-chip">Employee {state.employeeId}</span>
-          <button className="secondary-action-button" onClick={openForm} type="button">
-            Prepare application
-          </button>
-        </div>
-      </header>
+      <LoanTopbar employeeId={normalizedState.employeeId} />
 
       <section className="loan-hero-panel">
         <div>
@@ -226,12 +202,12 @@ export function LoanCopilotWorkspace() {
         <LoanConversationPanel />
 
         <aside className="workflow-column">
-          <CustomerProfileCard form={state.form} profile={state.customerProfile} />
+          <CustomerProfileCard form={normalizedState.form} profile={normalizedState.customerProfile} />
 
-          {state.showLoanForm || state.currentStep === "form" ? (
+          {normalizedState.showLoanForm || normalizedState.currentStep === "form" ? (
             <LoanApplicationFormCard
               busy={busy}
-              form={state.form}
+              form={normalizedState.form}
               onFieldChange={updateField}
               onLookup={handleLookup}
               onSubmit={handleSubmit}
@@ -245,18 +221,20 @@ export function LoanCopilotWorkspace() {
                 </div>
               </div>
               <p className="metric-copy">
-                When the assistant detects a loan request, the application form should open here within the same workspace.
+                When the assistant detects a loan request, the application form opens here within the same workspace.
               </p>
             </section>
           )}
 
-          {state.recommendation ? <DecisionSummaryCard recommendation={state.recommendation} /> : null}
+          {normalizedState.recommendation ? (
+            <DecisionSummaryCard recommendation={normalizedState.recommendation} />
+          ) : null}
 
-          {state.recommendation ? (
+          {normalizedState.recommendation ? (
             <EmployeeActionCard
-              applicationId={state.recommendation.applicationId}
+              applicationId={normalizedState.recommendation.applicationId}
               onSubmit={handleAction}
-              recommendationStatus={state.recommendation.status}
+              recommendationStatus={normalizedState.recommendation.status}
             />
           ) : null}
         </aside>

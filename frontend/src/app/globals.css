@@ -66,11 +66,31 @@ textarea {
 .loan-topbar {
   background: var(--nbp-color-brand-navy);
   color: #fff;
-  padding: 20px 24px;
+  padding: 18px 24px;
   display: flex;
   justify-content: space-between;
   gap: 16px;
   align-items: center;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(10, 25, 46, 0.16);
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.topbar-logo {
+  width: 174px;
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.topbar-brand-copy {
+  display: grid;
+  gap: 4px;
 }
 
 .topbar-kicker,
@@ -85,7 +105,7 @@ textarea {
 }
 
 .topbar-kicker {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .topbar-title,
@@ -107,24 +127,55 @@ textarea {
   gap: 12px;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: end;
+}
+
+.topbar-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(189, 173, 125, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  color: #f5edd0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .loan-hero-panel {
   margin-top: 24px;
   padding: 28px 32px;
   background:
-    linear-gradient(135deg, rgba(21, 46, 82, 0.04), rgba(233, 231, 227, 0.75)),
-    var(--nbp-color-surface-base);
+    radial-gradient(circle at right center, rgba(212, 175, 55, 0.2), transparent 28%),
+    linear-gradient(135deg, rgba(5, 19, 39, 0.92), rgba(21, 46, 82, 0.96));
   display: flex;
   justify-content: space-between;
   gap: 24px;
   align-items: end;
+  overflow: hidden;
+  position: relative;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.loan-hero-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(36%, 320px);
+  background:
+    linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.06)),
+    url("/nbp-logo.svg") center right 24px / 210px no-repeat;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 .hero-display {
   font-size: clamp(28px, 3vw, 42px);
   line-height: 44px;
   max-width: 16ch;
+  color: #f7f1dc;
 }
 
 .hero-copy,
@@ -132,6 +183,11 @@ textarea {
   margin: 0;
   color: var(--nbp-color-text-secondary);
   line-height: 24px;
+}
+
+.loan-hero-panel .panel-eyebrow,
+.loan-hero-panel .hero-copy {
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .loan-layout {
