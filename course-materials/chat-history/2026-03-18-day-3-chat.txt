@@ -48,7 +48,7 @@
 	Theme do WezTerm:C:\Users\labuser\.config\wezterm
 	omarchy.lua
 	
-2026-03-18 09:18:45 From Wawrzyniec Suleja to JSystems Szkolenia (direct message):
+2026-03-18 09:18:45 From Wawrzyniec to JSystems Szkolenia (direct message):
 	Wychodzę na 3 minuty.
 	
 2026-03-18 09:20:39 From JSystems Szkolenia to Everyone:
@@ -84,7 +84,7 @@
 2026-03-18 10:53:10 From JSystems Szkolenia to Everyone:
 	Ollama Lokalna w Codex zamiast subskrypcji OpenAI:https://developers.openai.com/codex/config-advanced#custom-model-providersPliki konfiguracyjne codex:C:\Users\labuser\.codexconfig.toml edytujemy
 	
-2026-03-18 10:54:27 From Wawrzyniec Suleja to JSystems Szkolenia (direct message):
+2026-03-18 10:54:27 From Wawrzyniec to JSystems Szkolenia (direct message):
 	To już się totalnie pogubiłem, co jest w głównym nurcie kursu, a co dla chętnych i nawet nie wiem, czy jestem na bieżąco. Nie chcę wstrzymywać, więc przełączam się w tryb nasłuchu. :)
 	
 2026-03-18 10:55:02 From JSystems Szkolenia to Everyone:
@@ -99,10 +99,10 @@
 2026-03-18 11:09:33 From JSystems Szkolenia to Everyone:
 	Fixed script for PSQL:https://github.com/EdukeyTeam/AI-Programming-Course-JSystem-03-2026/tree/Postgressql-powershel-script-fixes
 	
-2026-03-18 11:18:11 From JSystems Szkolenia to Wawrzyniec Suleja (direct message):
+2026-03-18 11:18:11 From JSystems Szkolenia to Wawrzyniec (direct message):
 	https://github.com/langgraph4j/langgraph4j-copilotkit CopilotKit z LangGraph 4 Java
 	
-2026-03-18 11:20:24 From JSystems Szkolenia to Wawrzyniec Suleja (direct message):
+2026-03-18 11:20:24 From JSystems Szkolenia to Wawrzyniec (direct message):
 	Prostrze nie agentowe rozwiązania z LLM dla JAva z LAngChain:https://github.com/langchain4j/langchain4j
 	
 2026-03-18 11:29:02 From JSystems Szkolenia to Everyone:
@@ -141,7 +141,7 @@
 2026-03-18 13:29:11 From JSystems Szkolenia to Everyone:
 	Do użycia w zmiennej jako nazwa modelu w waszej aplikacji:minimax/minimax-m2.1deepseek/deepseek-v3.2
 	
-2026-03-18 13:37:06 From Wawrzyniec Suleja to JSystems Szkolenia (direct message):
+2026-03-18 13:37:06 From Wawrzyniec to JSystems Szkolenia (direct message):
 	Chciałem tylko zaznaczyć, że trochę niesprawiedliwie odebrałem uwagę, że wstrzymuję zajęcia. Dopytywałem, żeby nadążyć za materiałem, a nie blokować szkolenie - zwłaszcza że w podobnych sytuacjach innym uczestnikom była udzielana pomoc. Piszę to spokojnie, żeby nie było nieporozumienia.
 	
 2026-03-18 13:56:39 From JSystems Szkolenia to Everyone:
@@ -153,7 +153,7 @@
 2026-03-18 13:58:34 From JSystems Szkolenia to Everyone:
 	Zadaj mi teraz minimum 5 pytań aby mieć pewność że wiesz wszystko co potrzebne do wykonania zadania. Przeanalizuj czego jeszcze Ci brakuje.
 	
-2026-03-18 14:12:04 From Łukasz Szaniec to Everyone:
+2026-03-18 14:12:04 From Łukasz to Everyone:
 	ja dzisiaj około 15:40-45 będę kończył
 	
 2026-03-18 14:14:10 From Michal to Everyone:
@@ -177,7 +177,7 @@
 2026-03-18 14:51:15 From JSystems Szkolenia to Everyone:
 	Testy E2E z Playwright od Microsoft:https://playwright.dev/ https://github.com/microsoft/playwright 
 	
-2026-03-18 14:56:49 From Łukasz Szaniec to Everyone:
+2026-03-18 14:56:49 From Łukasz to Everyone:
 	cześć, ja już na dzisiaj kończę, do zobaczenia jutro
 	
 2026-03-18 14:57:50 From JSystems Szkolenia to Everyone:

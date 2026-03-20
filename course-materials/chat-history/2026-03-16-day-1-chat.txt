@@ -104,13 +104,13 @@
 2026-03-16 11:56:34 From Karol to Everyone:
 	toad
 	
-2026-03-16 11:56:41 From Marcin Michałowski to Everyone:
+2026-03-16 11:56:41 From Marcin to Everyone:
 	Pl/Sql Developer
 	
 2026-03-16 11:59:28 From Michal to Everyone:
 	Data Grip
 	
-2026-03-16 11:59:33 From Marcin Michałowski to Everyone:
+2026-03-16 11:59:33 From Marcin to Everyone:
 	https://www.oracle.com/database/sqldeveloper/
 	
 2026-03-16 12:05:49 From JSystems Szkolenia to Everyone:
@@ -143,7 +143,7 @@
 2026-03-16 13:35:55 From JSystems Szkolenia to Everyone:
 	https://www.goodreads.com/book/show/228646231-if-anyone-builds-it-everyone-dies
 	
-2026-03-16 13:45:31 From Wawrzyniec Suleja to JSystems Szkolenia (direct message):
+2026-03-16 13:45:31 From Wawrzyniec to JSystems Szkolenia (direct message):
 	Przepraszam, ale dzisiaj muszę się odmeldować.
 	
 2026-03-16 13:55:16 From JSystems Szkolenia to Everyone:
@@ -185,7 +185,7 @@
 2026-03-16 14:34:38 From JSystems Szkolenia to Everyone:
 	https://chat.z.ai/space/h1a0che8zcr1-art
 	
-2026-03-16 14:38:00 From JSystems Szkolenia to Wawrzyniec Suleja (direct message):
+2026-03-16 14:38:00 From JSystems Szkolenia to Wawrzyniec (direct message):
 	ok, dziękuję za dzisiaj :)
 	
 2026-03-16 14:39:36 From JSystems Szkolenia to Everyone:
