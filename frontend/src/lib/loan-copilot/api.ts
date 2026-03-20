@@ -1,9 +1,10 @@
 import {
+  BackendLoanWorkflowApiResponse,
   CustomerLookupPayload,
-  LoanCopilotApiResponse,
   RecordEmployeeActionPayload,
   SubmitLoanApplicationPayload
 } from "./types";
+import { normalizeLoanCopilotApiResponse } from "./state";
 
 const loanApiBaseUrl = process.env.NEXT_PUBLIC_LOAN_API_BASE_URL ?? "http://127.0.0.1:8080/api/loan";
 
@@ -25,13 +26,16 @@ async function postJson<T>(path: string, body: unknown): Promise<T> {
 }
 
 export function lookupCustomerProfile(payload: CustomerLookupPayload) {
-  return postJson<LoanCopilotApiResponse>("/customers/lookup", payload);
+  return postJson<BackendLoanWorkflowApiResponse>("/customers/lookup", payload).then(normalizeLoanCopilotApiResponse);
 }
 
 export function submitLoanApplication(payload: SubmitLoanApplicationPayload) {
-  return postJson<LoanCopilotApiResponse>("/applications", payload);
+  return postJson<BackendLoanWorkflowApiResponse>("/applications", payload).then(normalizeLoanCopilotApiResponse);
 }
 
 export function recordEmployeeAction(applicationId: string, payload: RecordEmployeeActionPayload) {
-  return postJson<LoanCopilotApiResponse>(`/applications/${applicationId}/actions`, payload);
+  return postJson<BackendLoanWorkflowApiResponse>(
+    `/applications/${applicationId}/employee-action`,
+    payload
+  ).then(normalizeLoanCopilotApiResponse);
 }
