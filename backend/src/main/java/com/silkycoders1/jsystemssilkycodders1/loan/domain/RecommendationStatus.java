@@ -1,0 +1,7 @@
+package com.silkycoders1.jsystemssilkycodders1.loan.domain;
+
+public enum RecommendationStatus {
+	APPROVE,
+	REJECT,
+	NEEDS_VERIFICATION
+}
