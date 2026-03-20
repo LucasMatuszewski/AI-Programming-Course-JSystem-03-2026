@@ -1,6 +1,7 @@
 package com.silkycoders1.jsystemssilkycodders1.agui.sdk;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.agui.core.event.BaseEvent;
 import org.springframework.http.CacheControl;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +15,11 @@ import reactor.core.publisher.Flux;
 @RestController
 public class AGUISSEController {
 
-    private final AGUIAbstractLangGraphAgent agent;
+    private final LoanCopilotAgentService agentService;
     private final ObjectMapper objectMapper;
 
-    public AGUISSEController(AGUIAbstractLangGraphAgent agent, ObjectMapper objectMapper) {
-        this.agent = agent;
+    public AGUISSEController(LoanCopilotAgentService agentService, ObjectMapper objectMapper) {
+        this.agentService = agentService;
         this.objectMapper = objectMapper;
     }
 
@@ -28,18 +29,20 @@ public class AGUISSEController {
             @RequestHeader(value = "Accept", required = false) String accept,
             @RequestBody AGUIParameters parameters
     ) {
-        var body = agent.run(parameters.toRunAgentParameters())
-                .map(event -> {
-                    try {
-                        return " %s".formatted(objectMapper.writeValueAsString(event));
-                    } catch (Exception exception) {
-                        throw new IllegalStateException("Unable to serialize AG-UI event", exception);
-                    }
-                });
+        var body = agentService.run(parameters.toRunAgentParameters())
+                .map(this::serializeSseEvent);
 
         return ResponseEntity.ok()
                 .cacheControl(CacheControl.noCache())
                 .contentType(MediaType.TEXT_EVENT_STREAM)
                 .body(body);
+    }
+
+    private String serializeSseEvent(BaseEvent event) {
+        try {
+            return "data: %s\n\n".formatted(objectMapper.writeValueAsString(event));
+        } catch (Exception exception) {
+            throw new IllegalStateException("Unable to serialize AG-UI event", exception);
+        }
     }
 }

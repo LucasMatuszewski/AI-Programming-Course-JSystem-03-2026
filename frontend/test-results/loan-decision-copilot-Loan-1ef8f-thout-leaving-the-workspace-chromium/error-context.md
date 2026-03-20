@@ -1,0 +1,119 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - paragraph [ref=e5]: Narodowy Bank Polski
+        - heading "Loan Decision Copilot" [level=1] [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8]: Employee demo-employee-1
+        - button "Prepare application" [ref=e9] [cursor=pointer]
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: Guided decisioning
+        - heading "Detect intent in chat, complete the form, and explain the recommendation." [level=2] [ref=e13]
+      - paragraph [ref=e14]: The workspace keeps the conversation, customer profile, and preliminary decision in one auditable screen.
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e18]:
+          - paragraph [ref=e19]: Conversation
+          - heading "Customer dialogue" [level=2] [ref=e20]
+        - generic [ref=e21]:
+          - button "Open Chat" [ref=e23] [cursor=pointer]:
+            - img [ref=e25]
+            - generic:
+              - img
+          - generic:
+            - generic:
+              - generic: Loan Decision Copilot
+              - generic:
+                - generic:
+                  - generic:
+                    - button "Open Help": Help
+                  - button "Debug":
+                    - text: Debug
+                    - img
+                - button "Close":
+                  - img
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - paragraph: "Try: The customer wants a personal loan for 20,000 and would like to know if they qualify."
+                  - generic:
+                    - button "Regenerate response":
+                      - img
+                    - button "Copy to clipboard":
+                      - img
+                    - button "Thumbs up":
+                      - img
+                    - button "Thumbs down":
+                      - img
+            - generic:
+              - generic:
+                - textbox "Type a message..."
+                - generic:
+                  - button "Send" [disabled]:
+                    - img
+              - generic:
+                - paragraph: Powered by CopilotKit
+      - complementary [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e31]:
+            - paragraph [ref=e32]: Customer profile
+            - heading "Awaiting lookup" [level=2] [ref=e33]
+          - paragraph [ref=e34]: Provide a PESEL or VAT ID to prefill customer details from the bank record.
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - paragraph [ref=e38]: Application form
+              - heading "Collect application details in-chat" [level=2] [ref=e39]
+            - generic [ref=e40]: Form mvp-v1
+          - generic [ref=e41]:
+            - generic [ref=e42]:
+              - generic [ref=e43]: Identifier type
+              - combobox "Identifier type" [ref=e44]:
+                - option "PESEL" [selected]
+                - option "VAT ID"
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - text: PESEL or VAT ID
+                - strong [ref=e47]: "*"
+              - textbox "PESEL or VAT ID * Customer identifier is required." [ref=e48]
+              - alert [ref=e49]: Customer identifier is required.
+            - generic [ref=e50]:
+              - generic [ref=e51]: Loan product
+              - combobox "Loan product" [ref=e52]:
+                - option "Personal loan" [selected]
+                - option "Car loan"
+                - option "Cash loan"
+            - generic [ref=e53]:
+              - generic [ref=e54]:
+                - text: Requested amount
+                - strong [ref=e55]: "*"
+              - textbox "Requested amount * Enter a valid requested amount." [ref=e56]
+              - alert [ref=e57]: Enter a valid requested amount.
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - text: Requested term (months)
+                - strong [ref=e60]: "*"
+              - textbox "Requested term (months) * Enter a valid repayment term." [ref=e61]
+              - alert [ref=e62]: Enter a valid repayment term.
+            - generic [ref=e63]:
+              - generic [ref=e64]:
+                - text: Declared purpose
+                - strong [ref=e65]: "*"
+              - textbox "Declared purpose * Purpose is required." [ref=e66]
+              - alert [ref=e67]: Purpose is required.
+          - paragraph [ref=e68]: Capture the customer identifier first to request prefilled details.
+          - generic [ref=e69]:
+            - button "Lookup customer" [ref=e70] [cursor=pointer]
+            - button "Submit application" [active] [ref=e71] [cursor=pointer]
+  - alert [ref=e72]
+  - button "Web Inspector" [ref=e74]:
+    - note [ref=e75]:
+      - generic [ref=e76]: CopilotKit v1.50 is now live!
+    - img "Inspector logo" [ref=e78]
+```

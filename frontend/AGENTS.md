@@ -58,3 +58,6 @@ Do not move files just to satisfy a target structure. Apply this shape increment
 
 ## Maintenance Rule
 - When a frontend mistake or missing rule becomes clear, update this file or a more specific nested frontend `AGENTS.md` instead of adding more general guidance to the root file.
+
+## Contex7 Documentation:
+- CopilotKit handler: `/copilotkit/copilotkit`
