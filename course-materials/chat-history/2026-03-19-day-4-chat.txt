@@ -32,7 +32,7 @@
 2026-03-19 09:50:25 From JSystems Szkolenia to Everyone:
 	Jakie pliki mam otwarte w IntelliJ - użyj intellij-ide MCP
 	
-2026-03-19 09:54:20 From Wawrzyniec Suleja to JSystems Szkolenia (direct message):
+2026-03-19 09:54:20 From Wawrzyniec to JSystems Szkolenia (direct message):
 	Tak żeby nie było, że tylko pyskuję. Teraz jest super.
 	
 2026-03-19 09:54:21 From JSystems Szkolenia to Everyone:
@@ -44,7 +44,7 @@
 2026-03-19 10:41:50 From JSystems Szkolenia to Everyone:
 	Be concise! Provide short answers unless I ask for more details. I prefer step-by-step instructions that are straight to the point. Never repeat the same information.You may provide your opinions on topics but always make it clear that this is your opinion, not a fact. When you don't know, just say that you don't know.If you work in Git repo you should always commit changes after every step, before you go to the text task. Commit often to make it easier to revert changes if you make a mistake on any step.Before committing and ending the task you should always check if your changes work correctly.
 	
-2026-03-19 11:03:57 From Łukasz Szaniec to Everyone:
+2026-03-19 11:03:57 From Łukasz to Everyone:
 	OpenAI Codex (v0.114.0)
 	
 2026-03-19 11:27:56 From JSystems Szkolenia to Everyone:
@@ -83,13 +83,13 @@
 2026-03-19 12:04:34 From JSystems Szkolenia to Everyone:
 	npx skills add https://github.com/github/awesome-copilot --skill java-junit
 	
-2026-03-19 12:08:30 From Wawrzyniec Suleja to JSystems Szkolenia (direct message):
+2026-03-19 12:08:30 From Wawrzyniec to JSystems Szkolenia (direct message):
 	397a05e6-f18c-4ed3-8e53-3c88a4bd53ce.png
 	
 2026-03-19 12:08:35 From JSystems Szkolenia to Everyone:
 	13:40 koniec przerwy
 	
-2026-03-19 12:11:28 From JSystems Szkolenia to Wawrzyniec Suleja (direct message):
+2026-03-19 12:11:28 From JSystems Szkolenia to Wawrzyniec (direct message):
 	{4DB64E16-1AF8-43B7-9F29-173E4FFF9974}.png
 	
 2026-03-19 12:11:55 From JSystems Szkolenia to Everyone:
@@ -101,7 +101,7 @@
 2026-03-19 12:16:02 From JSystems Szkolenia to Everyone:
 	WIP branch gdzie są te skills i mój AGENTS.md - potem to dodam do głównego repo na master:https://github.com/EdukeyTeam/AI-Programming-Course-JSystem-03-2026/tree/wip-implement-copilotkit-langgraphjs
 	
-2026-03-19 12:18:04 From Wawrzyniec Suleja to Everyone:
+2026-03-19 12:18:04 From Wawrzyniec to Everyone:
 	Ja mam npx skills --version returns 1.4.5. Możecie sprawdzić jaką Wy macie?
 	
 2026-03-19 12:19:02 From JSystems Szkolenia to Everyone:

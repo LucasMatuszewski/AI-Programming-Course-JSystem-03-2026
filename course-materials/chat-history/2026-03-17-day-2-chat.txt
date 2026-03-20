@@ -40,7 +40,7 @@
 2026-03-17 10:01:17 From JSystems Szkolenia to Everyone:
 	Jakie masz informacje o sytemie operacyjnym i aplikacji w której się znajdujesz? Co możesz zrobić w ramach tego środowiska, jakie masz narzędzia i skills? JAkim modelem jesteś? Kto Cię stworzył? Jaką masz datę knowledge cutoff?
 	
-2026-03-17 10:18:37 From Łukasz Szaniec to Everyone:
+2026-03-17 10:18:37 From Łukasz to Everyone:
 	po restarcie cli wypisuje już wszystkie 4 skile
 	
 2026-03-17 10:27:51 From JSystems Szkolenia to Everyone:
@@ -93,14 +93,14 @@
 2026-03-17 12:09:31 From JSystems Szkolenia to Everyone:
 	-- shift+enterconfig.keys = {  {    key = "Enter",    mods = "SHIFT",    action = wezterm.action.SendString("\x0a"),  },}
 	
-2026-03-17 12:28:13 From Wawrzyniec Suleja to JSystems Szkolenia (direct message):
+2026-03-17 12:28:13 From Wawrzyniec to JSystems Szkolenia (direct message):
 	Ja niestety zostałem odciągnięty przez pracę na ostatnie 20 minut. Uzupełnię środowisko od kolegów dzisiaj popołudniu.
 	
 2026-03-17 12:33:01 From JSystems Szkolenia to Everyone:
 	https://github.com/settings/keys
 	
 2026-03-17 12:35:13 From Michal to Everyone:
-	ssh-keygen -o -t rsa -C "windows-ssh@mcnz.com"
+	ssh-keygen -o -t rsa -C "user@example.com"
 	
 2026-03-17 13:09:33 From JSystems Szkolenia to Everyone:
 	cat /c/Users/labuser/.ssh/id_rsa.pub
@@ -114,21 +114,21 @@
 2026-03-17 13:14:56 From JSystems Szkolenia to Everyone:
 	ls ~/.ssh
 	
-2026-03-17 13:15:37 From Łukasz Szaniec to Everyone:
+2026-03-17 13:15:37 From Łukasz to Everyone:
 	$ ls ~/.ssh
 	ls: cannot access '/c/Users/labuser/.ssh': No such file or directory
 	
 2026-03-17 13:16:09 From JSystems Szkolenia to Everyone:
 	cat ~/.ssh/id_rsa.pub
 	
-2026-03-17 13:16:44 From Łukasz Szaniec to Everyone:
+2026-03-17 13:16:44 From Łukasz to Everyone:
 	Your public key has been saved in id_rsa.pub.pub
 	The key fingerprint is:
-	SHA256:B+twomrchoOa7VQR83eOU+USxWPKaqcPQtr6dkoW8J0 tgk2255@gmail.com
+	SHA256:B+twomrchoOa7VQR83eOU+USxWPKaqcPQtr6dkoW8J0 participant@example.com
 	The key's randomart image is:
 	
 2026-03-17 13:18:28 From JSystems Szkolenia to Everyone:
-	ssh-keygen -o -t rsa -C "lucas.matuszewski@gmail.com"
+	ssh-keygen -o -t rsa -C "trainer@example.com"
 	
 2026-03-17 13:23:10 From JSystems Szkolenia to Everyone:
 	git clone git@github.com:EdukeyTeam/AI-Programming-Course-JSystem-03-2026.git
@@ -142,7 +142,7 @@
 2026-03-17 13:37:08 From JSystems Szkolenia to Everyone:
 	Acceptance criteria:1) Kontener PostgreSQL działa2) Znamy host, port, user, password, db name3) Potrafimy połączyć się do bazy4) Potrafimy wykonać proste CREATE TABLE i SELECT5) Mamy zapisane komendy lub docker-compose / compose.yaml do ponownego uruchomienia
 	
-2026-03-17 13:39:59 From Łukasz Szaniec to Everyone:
+2026-03-17 13:39:59 From Łukasz to Everyone:
 	pulic key dodałem do gita, udało się
 	
 2026-03-17 13:43:00 From JSystems Szkolenia to Everyone:
@@ -154,7 +154,7 @@
 	To może działać na Twoim Windows Server 2022
 	Minusy: to nie jest oficjalny obraz postgres, więc większe ryzyko utrzymaniowe
 	
-2026-03-17 14:35:34 From Łukasz Szaniec to Everyone:
+2026-03-17 14:35:34 From Łukasz to Everyone:
 	services:
 	  postgres:
 	    image: stellirin/postgres-windows:latest
@@ -182,7 +182,7 @@
 	volumes:
 	  postgres_data:
 	
-2026-03-17 14:37:24 From Łukasz Szaniec to Everyone:
+2026-03-17 14:37:24 From Łukasz to Everyone:
 	W repo dodałem działającą konfigurację PostgreSQL pod Windows Docker i
 	  uruchomiłem ją z compose.yaml. Kluczowe pliki to compose.yaml, docker/
 	  postgres/scripts/bootstrap.cmd i docker/postgres/init/001-init.sql. Dodałem
@@ -231,9 +231,9 @@
 2026-03-17 15:04:56 From JSystems Szkolenia to Everyone:
 	https://github.com/EdukeyTeam/AI-Programming-Course-JSystem-03-2026/blob/master/prompts/day-2/PRD-generation-prompt-promtcowboy.md Przykładowy prompt od Prompt Cowboy
 	
-2026-03-17 15:06:00 From Łukasz Szaniec to Everyone:
+2026-03-17 15:06:00 From Łukasz to Everyone:
 	ja już muszę kończyć na dzisiaj, cześć, do jutra
 	
-2026-03-17 15:06:12 From Łukasz Szaniec to Everyone:
+2026-03-17 15:06:12 From Łukasz to Everyone:
 	spoko
 	
