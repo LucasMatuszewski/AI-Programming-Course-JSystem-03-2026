@@ -5,7 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 ENV_FILE="$REPO_ROOT/.env"
 ENV_EXAMPLE="$REPO_ROOT/.env.example"
-SEED_FILE="/docker-entrypoint-initdb.d/01-clients.sql"
+SCHEMA_FILE="/docker-entrypoint-initdb.d/01-loan-decision-schema.sql"
+SEED_FILE="/docker-entrypoint-initdb.d/02-loan-decision-seed.sql"
 DOCKER_STARTED_BY_SCRIPT=0
 COMPOSE_CMD=""
 
@@ -267,6 +268,11 @@ wait_for_postgres() {
   fail "PostgreSQL container did not become healthy in time."
 }
 
+apply_schema() {
+  run_compose -f "$REPO_ROOT/compose.yaml" exec -T postgres \
+    psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f "$SCHEMA_FILE" >/dev/null
+}
+
 apply_seed() {
   run_compose -f "$REPO_ROOT/compose.yaml" exec -T postgres \
     psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -f "$SEED_FILE" >/dev/null
@@ -274,7 +280,7 @@ apply_seed() {
 
 verify_db() {
   run_compose -f "$REPO_ROOT/compose.yaml" exec -T postgres \
-    psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT id, name, email FROM clients ORDER BY id;" 
+    psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "SELECT COUNT(*) AS customers, (SELECT COUNT(*) FROM loan_products) AS loan_products FROM customers;"
 }
 
 main() {
@@ -289,6 +295,9 @@ main() {
   log "Starting PostgreSQL container."
   run_compose -f "$REPO_ROOT/compose.yaml" up -d postgres
   wait_for_postgres
+
+  log "Applying idempotent schema."
+  apply_schema
 
   log "Applying idempotent seed."
   apply_seed

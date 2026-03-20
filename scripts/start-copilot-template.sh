@@ -5,6 +5,49 @@ log() {
   printf '[start-copilot-template] %s\n' "$1"
 }
 
+ensure_docker_compose() {
+  if command -v docker-compose >/dev/null 2>&1; then
+    COMPOSE_CMD=(docker-compose)
+    return
+  fi
+
+  if ! command -v docker >/dev/null 2>&1; then
+    echo "Docker Compose is required to start PostgreSQL for the backend." >&2
+    exit 1
+  fi
+
+  docker compose version >/dev/null 2>&1
+  COMPOSE_CMD=(docker compose)
+}
+
+ensure_postgres() {
+  log "Ensuring PostgreSQL container is running."
+  (
+    cd "$REPO_ROOT"
+    "${COMPOSE_CMD[@]}" up -d postgres >/dev/null
+  )
+
+  local attempt container_id health
+  for attempt in $(seq 1 24); do
+    container_id="$(cd "$REPO_ROOT" && "${COMPOSE_CMD[@]}" ps -q postgres)"
+    if [ -z "$container_id" ]; then
+      sleep 2
+      continue
+    fi
+
+    health="$(docker inspect --format '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$container_id")"
+    if [ "$health" = "healthy" ] || [ "$health" = "running" ]; then
+      log "PostgreSQL is ready."
+      return
+    fi
+
+    sleep 2
+  done
+
+  echo "PostgreSQL did not become ready. Check the PostgreSQL container logs for details." >&2
+  exit 1
+}
+
 ensure_java() {
   if command -v java >/dev/null 2>&1; then
     return
@@ -48,6 +91,7 @@ LOGS_DIR="$REPO_ROOT/logs"
 
 backend_pid=""
 frontend_pid=""
+COMPOSE_CMD=()
 
 cleanup() {
   local exit_code=$?
@@ -72,6 +116,8 @@ trap cleanup EXIT INT TERM
 
 cd "$REPO_ROOT"
 ensure_java
+ensure_docker_compose
+ensure_postgres
 mkdir -p "$LOGS_DIR"
 
 log "Backend URL: http://localhost:$BACKEND_PORT"

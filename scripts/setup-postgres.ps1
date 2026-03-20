@@ -27,6 +27,44 @@ function Convert-ToWslPath {
     throw "Cannot convert path to WSL format: $WindowsPath"
 }
 
+function Set-OrUpdateEnvValue {
+    param(
+        [Parameter(Mandatory = $true)][string]$FilePath,
+        [Parameter(Mandatory = $true)][string]$Key,
+        [Parameter(Mandatory = $true)][string]$Value
+    )
+
+    $lines = @()
+    if (Test-Path $FilePath) {
+        $lines = Get-Content -Path $FilePath
+    }
+
+    $updated = $false
+    $escapedKey = [regex]::Escape($Key)
+    for ($index = 0; $index -lt $lines.Count; $index++) {
+        if ($lines[$index] -match "^${escapedKey}=") {
+            $lines[$index] = "$Key=$Value"
+            $updated = $true
+        }
+    }
+
+    if (-not $updated) {
+        $lines += "$Key=$Value"
+    }
+
+    Set-Content -Path $FilePath -Value $lines
+}
+
+function Get-UbuntuPrimaryIp {
+    $raw = wsl.exe -d Ubuntu -- hostname -I
+    $primaryIp = ($raw -split "\s+" | Where-Object { $_ } | Select-Object -First 1)
+    if (-not $primaryIp) {
+        throw "Could not determine the Ubuntu WSL IP address."
+    }
+
+    return $primaryIp
+}
+
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $wslRepoRoot = Convert-ToWslPath -WindowsPath $repoRoot
 
@@ -99,3 +137,8 @@ PY
 Write-Info "Running PostgreSQL setup inside WSL Ubuntu."
 $command = "cd '$wslRepoRoot' && bash './scripts/setup-postgres.sh'"
 wsl.exe -d Ubuntu -u root -- bash -lc $command
+
+$envFile = Join-Path $repoRoot ".env"
+$wslPrimaryIp = Get-UbuntuPrimaryIp
+Set-OrUpdateEnvValue -FilePath $envFile -Key "POSTGRES_HOST" -Value $wslPrimaryIp
+Write-Info "Updated POSTGRES_HOST in .env to $wslPrimaryIp for Windows-side backend access."

@@ -4,7 +4,7 @@ spring:
   config:
     import: optional:file:../.env[.properties]
   datasource:
-    url: ${POSTGRES_URL:jdbc:postgresql://localhost:${POSTGRES_PORT:5433}/${POSTGRES_DB:app_dev}}
+    url: ${POSTGRES_URL:jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5433}/${POSTGRES_DB:app_dev}}
     username: ${POSTGRES_USER:app}
     password: ${POSTGRES_PASSWORD:app_password}
   jpa:
