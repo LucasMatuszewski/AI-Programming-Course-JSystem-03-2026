@@ -222,10 +222,7 @@ https://skills.sh/claude-dev-suite/claude-dev-suite/plsql
 	
 2026-03-20 14:37:48 From JSystems Szkolenia to Everyone:
 	https://www.jsystems.pl/ankiety/start.do
-	
-2026-03-20 14:42:26 From JSystems Szkolenia to Everyone:
-	lucas.matuszewski@gmail.com
-	
+
 2026-03-20 14:51:41 From JSystems Szkolenia to Everyone:
 	Claude Desktop Debian / Ubuntu
 https://github.com/aaddrick/claude-desktop-debian
