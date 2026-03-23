@@ -1,0 +1,259 @@
+2026-03-20 08:02:16 From JSystems Szkolenia to Everyone:
+	https://github.com/LucasMatuszewski/AI-Programming-Course-JSystem-03-2026
+	
+2026-03-20 08:35:23 From JSystems Szkolenia to Everyone:
+	cp ./upstream-AI-Programming-Course-JSystem-03-2026/frontend/node_modules/ ./AI-Programming-Course-JSystem-03-2026/fro
+ntend/node_modules/
+	
+2026-03-20 08:39:20 From JSystems Szkolenia to Everyone:
+	branch e.g. app-implementation-with-subagents
+	
+2026-03-20 08:46:11 From JSystems Szkolenia to Everyone:
+	Jakim modelem LLM jesteś? Kto Cię stworzył?
+	
+2026-03-20 08:54:33 From Wawrzyniec to JSystems Szkolenia (direct message):
+	Przepraszam, ale mam tu pożar i muszę wyjść na godzinę.
+	
+2026-03-20 08:57:05 From JSystems Szkolenia to Everyone:
+	Subagents docs:
+https://developers.openai.com/codex/subagents 
+
+https://developers.openai.com/codex/concepts/subagents
+	
+2026-03-20 09:03:39 From JSystems Szkolenia to Everyone:
+	I would like to review the following points on the current PR (this branch vs main). Spawn one agent per point, wait for all of them, and summarize the result for each point.
+1. Security issue
+2. Code quality
+3. Bugs
+4. Race
+5. Test flakiness
+6. Maintainability of the code
+	
+2026-03-20 09:11:26 From JSystems Szkolenia to Everyone:
+	Custom Agents:
+
+Review this branch against main. Have pr_explorer map the affected code paths, reviewer find real risks, and docs_researcher verify the framework APIs that the patch relies on.
+	
+2026-03-20 09:19:33 From JSystems Szkolenia to Everyone:
+	e2e-qa-engineer, frontend-nextjs-developer, java-springboot-developer
+	
+2026-03-20 09:19:36 From JSystems Szkolenia to Everyone:
+	
+## Contex7 Documentation:
+- CopilotKit handler: `/copilotkit/copilotkit`
+	
+2026-03-20 09:49:33 From JSystems Szkolenia to Everyone:
+	Do Jenkins i CI/CD flags for Codex:
+https://developers.openai.com/codex/cli/reference
+	
+2026-03-20 09:52:22 From JSystems Szkolenia to Everyone:
+	codex --yolo
+	
+2026-03-20 09:57:10 From JSystems Szkolenia to Everyone:
+	Przeanalizuj dokumentację projektu:
+  - `docs/loan-decision-copilot-prd.md` - product requirements and user flows
+  - `docs/loan-decision-copilot-adr-and-implementation-plan.md` - architecture decisions and implementation direction
+  - `docs/nbp-design-system.md` - UI language, brand rules, and design tokens
+
+  Twoim zadaniem jest stworznie planu implementacji tej aplikacji zgodnie z dokumentacją. Rozdziel to na drobne zadania które masz oddelegować do
+  wyspecjalizowanych sub-agents:
+  - e2e-qa-engineer,
+  - frontend-nextjs-developer,
+  - java-springboot-developer
+
+  Zaplanuj pracę tak aby agenci mogli pracować jednocześnie i nie kolidowali ze sobą.
+  Przestrzegaj zasad i workflow opisanego w pliku AGENTS.md i oprzyj plan o niego.
+  Każdemu sub-agentowi dostarczaj tylko niezbędne mu do pracy informacji aby mógł się skupić na zadaniu, opisuj mu bardzo dokładnie jego zadanie oraz
+  kryteria akceptacji zgodnie z PRD i ADR.
+	
+2026-03-20 10:00:48 From JSystems Szkolenia to Everyone:
+	https://www.promptcowboy.ai/share/-3NzVzMwi30Pd2wEcfoATQhM
+	
+2026-03-20 10:13:32 From JSystems Szkolenia to Everyone:
+	11:30 koniec przerwy
+	
+2026-03-20 10:51:38 From JSystems Szkolenia to Everyone:
+	The app dependencies are already installed on both FE and BE. The basic template from LangGraph4j-copilot is already compied and the app works. You should delegate work and not install everything again. You should always DELEGATE work to agents! Never implement changes yourself. Delegate and coordinate! Plan tasks for sub-agents in granural way, do not deleage whole implementation of FE and BE at once. Sub-Agents should work at small batches and you should always commit changes after each step after verifcation and when tests and linting pass.
+	
+2026-03-20 11:28:23 From JSystems Szkolenia to Everyone:
+	https://openrouter.ai/models
+	
+2026-03-20 11:29:16 From JSystems Szkolenia to Everyone:
+	Wzory plików AGENTS.md
+https://agents.md/
+	
+2026-03-20 11:31:27 From JSystems Szkolenia to Everyone:
+	Baza templatem i pomysłów na custom Sub-Agentów Codex:
+https://github.com/VoltAgent/awesome-codex-subagents
+	
+2026-03-20 11:35:35 From JSystems Szkolenia to Everyone:
+	https://platform.claude.com/docs/en/release-notes/system-prompts
+	
+2026-03-20 11:36:43 From JSystems Szkolenia to Everyone:
+	https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
+	
+2026-03-20 11:37:12 From JSystems Szkolenia to Everyone:
+	https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide
+	
+2026-03-20 11:41:07 From JSystems Szkolenia to Everyone:
+	https://skills.sh/
+	
+2026-03-20 11:56:42 From JSystems Szkolenia to Everyone:
+	Koniec przerwy 13:30
+	
+2026-03-20 12:47:23 From JSystems Szkolenia to Everyone:
+	https://bolt.new/ 
+
+https://lovable.dev/ 
+
+https://v0.app/templates/dashboards
+	
+2026-03-20 12:51:32 From JSystems Szkolenia to Everyone:
+	Replit - natywne aplikacje w wielu językach, np Rust, Python, nie tylko TS. także Mobile
+https://replit.com/
+	
+2026-03-20 12:52:38 From JSystems Szkolenia to Everyone:
+	https://replit.com/products/mobile
+	
+2026-03-20 12:53:35 From JSystems Szkolenia to Everyone:
+	https://bitrig.com/
+	
+2026-03-20 12:54:58 From JSystems Szkolenia to Everyone:
+	https://v0.app/templates/dashboards
+	
+2026-03-20 12:56:02 From JSystems Szkolenia to Everyone:
+	https://v0.app/ref/HDACI3
+	
+2026-03-20 13:08:37 From JSystems Szkolenia to Everyone:
+	Refactor this design of this dashboard to NBP Bank, Polish National Bank. I send you a screenshot which shows how this website looks like. So make it more corporate and appropriate for bank and make it as close to the original design I send you as possible. I also send you below Design system with all design tokens, with all colors, fonts, etc. So please use them. You should also check the URL of logo of NBP and visit this bank to check where are the fonts and where is the logo and use them to use the same fonts and use the same logo as on the original website.
+
+Design system and screen are in the attachment
+	
+2026-03-20 13:13:36 From JSystems Szkolenia to Everyone:
+	https://groq.com/
+	
+2026-03-20 13:14:22 From JSystems Szkolenia to Everyone:
+	Open source LLMs provider for free
+https://groq.com/pricing
+	
+2026-03-20 13:19:42 From JSystems Szkolenia to Everyone:
+	UI komponenty bardzo dobrze znane przez agentó AI:
+https://ui.shadcn.com/
+	
+2026-03-20 13:35:24 From JSystems Szkolenia to Everyone:
+	Codex config - custom endpoint:
+https://developers.openai.com/codex/config-advanced#custom-model-providers
+	
+2026-03-20 13:38:14 From JSystems Szkolenia to Everyone:
+	Codex condigs
+
+C:\Users\labuser\.codex
+	
+2026-03-20 13:39:07 From JSystems Szkolenia to Everyone:
+	[model_providers.ollama]
+name = "Ollama"
+base_url = "http://localhost:11434/v1"
+	
+2026-03-20 13:42:18 From JSystems Szkolenia to Everyone:
+	oss_provider = "ollama"
+	
+2026-03-20 13:55:00 From JSystems Szkolenia to Everyone:
+	v0 NBP Dashboard clone:
+
+https://v0-futuristic-dashboard-two-beta-60.vercel.app/
+	
+2026-03-20 14:04:45 From JSystems Szkolenia to Everyone:
+	Codex source code:
+https://github.com/openai/codex
+	
+2026-03-20 14:05:32 From Michal to Everyone:
+	model = "lfm2.5-thinking:latest"
+	model_provider = "ollama"
+	
+	[model_providers.ollama]
+	name = "Ollama"
+	base_url = "http://localhost:11434/v1"
+	
+2026-03-20 14:06:05 From Michal to Everyone:
+	│ >_ OpenAI Codex (v0.116.0)                                  │
+	│                                                             │
+	│ model:     lfm2.5-thinking:latest medium   /model to change │
+	
+2026-03-20 14:06:43 From Michal to Everyone:
+	model_provider = "ollama2"
+	
+	
+	[windows]
+	sandbox = "elevated"
+	
+	[model_providers.ollama2]
+	
+2026-03-20 14:14:46 From JSystems Szkolenia to Everyone:
+	C:\Users\labuser\Documents\upstream-AI-Programming-Course-JSystem-03-2026\course-materials\prompts\day-2\ollama-text2SQL-arctic-snowflake-tests.md
+	
+2026-03-20 14:16:52 From JSystems Szkolenia to Everyone:
+	https://github.com/LucasMatuszewski/AI-Programming-Course-JSystem-03-2026/blob/master/course-materials/prompts/day-2/ollama-text2SQL-arctic-snowflake-tests.md 
+Przykład SQL query wygenerowanego przez LLM Ollama text2SQL
+	
+2026-03-20 14:19:52 From JSystems Szkolenia to Everyone:
+	SELECT
+    u.name AS user_name,
+    u.id AS user_id,
+    u.email AS user_email,
+    p.bio AS user_bio,
+    p.experience AS user_experience,
+    c.name AS company_name,
+    c.logo AS company_logo,
+    c.size AS company_size
+FROM users u
+INNER JOIN profiles p ON u.profile_id = p.id
+INNER JOIN user_companies uc ON u.id = uc.user_id
+INNER JOIN companies c ON uc.company_id = c.id
+WHERE p.country = 'Poland';
+	
+2026-03-20 14:28:51 From JSystems Szkolenia to Everyone:
+	PL/SQL Skill
+
+https://skills.sh/claude-dev-suite/claude-dev-suite/plsql
+	
+2026-03-20 14:37:16 From JSystems Szkolenia to Everyone:
+	Ankiety i lista
+	Lista obecności AI dla programistów – od pomysłu do MVP 16-03-2026 - 20-03-2026.pdf
+	
+2026-03-20 14:37:48 From JSystems Szkolenia to Everyone:
+	https://www.jsystems.pl/ankiety/start.do
+	
+2026-03-20 14:42:26 From JSystems Szkolenia to Everyone:
+	lucas.matuszewski@gmail.com
+	
+2026-03-20 14:51:41 From JSystems Szkolenia to Everyone:
+	Claude Desktop Debian / Ubuntu
+https://github.com/aaddrick/claude-desktop-debian
+	
+2026-03-20 14:55:48 From JSystems Szkolenia to Everyone:
+	https://github.com/anthropics/skills 
+
+Claude /Skills
+	
+2026-03-20 15:00:17 From JSystems Szkolenia to Everyone:
+	--base-url
+	
+2026-03-20 15:01:05 From JSystems Szkolenia to Everyone:
+	Codex CLI headless w Jenkins:
+https://developers.openai.com/cookbook/examples/codex/build_code_review_with_codex_sdk#jenkins-example
+	
+2026-03-20 15:05:55 From Michal to Everyone:
+	Pamiętajcie o kluczach SSH
+	
+2026-03-20 15:06:03 From JSystems Szkolenia to Everyone:
+	Dzięki :)
+
+2026-03-20 15:27:10 From JSystems Szkolenia to Everyone:
+	https://www.snowflake.com/en/
+	
+2026-03-20 15:27:30 From JSystems Szkolenia to Everyone:
+	https://huggingface.co/Snowflake
+	
+2026-03-20 15:28:49 From JSystems Szkolenia to Everyone:
+	https://www.databricks.com/
+	
