@@ -2,14 +2,25 @@
 
 Course workspace for 5-day training.
 
+## Example .codex config file
+
+Codex config with basic recommended settings:
+- [.codex/config.toml](./.codex/config.toml)
+- It contains:
+  - **custom provider** with OpenRouter as example
+  - **profiles** to easily switch providers, models and context window settings
+    - Ollama models (3 profiles for 3 models), run `codex --oss --profile oss-cloud`
+    - OpenRouter example model, run `codex --profile openrouter`
+  - Comments explaining all settings
+  - Section about Ollama OSS provider and configs
+
 ## Structure
 - backend/ - Spring Boot starter app (seeded from Silky master)
 - frontend/ - UI app for course demo
 - ag-ui/ - git submodule with AG-UI community Java SDK used by the MVP template
-- exercises/ - isolated exercise code samples
-- prompts/ - copy/paste prompts used during sessions
-- materials/ - scripts, handouts, references
-- materials/scripts/ - helper scripts for setup/demo
+- docs/ - PRD (Product Requirements), ADR (Architecture Decision Record), Design System
+- scripts/ - helper scripts for setup/demo
+- course-materials/ - scripts, research data, references
 
 ## CopilotKit Template MVP
 - This repo uses the `langgraph4j-copilotkit` integration pattern.
